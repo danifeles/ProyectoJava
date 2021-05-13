@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{css/formclientes.css}" type="text/css">
+<title>Formulario Clientes</title>
+</head>
+<body>
+    <div id="div1" class="container p-4 my-4">
+        <p id="textoClientes">Clientes /<span id="textonew">&nbsp;New</span></p>
+        <button id="botonguardar" type="button"> GUARDAR </button>
+        <button id="botondescartar"> DESCARTAR </button>
+        <div class="container p-4 my-4" id="contenedor">
+            <div class="row bg-white">
+                <div class="col-md-8 border"> </div>
+                <div class="col-md-2 border">
+                    <div class="row">
+                        <div class="col-5">
+                            <i class="fas fa-dollar-sign fa-2x pt-2 pl-4" id="colorgris"></i>
+                        </div>
+                        <div class="col-5">
+                            <div id="colorindigo">0 </div>
+                            <div id="colorgris"> Ventas </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 border">
+                    <div class="row">
+                        <div class="col-5">
+                            <i class="fas fa-edit fa-2x pt-2 pl-4" id="colorgris"></i>
+                        </div>
+                        <div class="col-5">
+                            <div id="colorindigo">0 </div>
+                            <div id="colorgris"> Facturado </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<form action="formcliente" method="post">
+            <div class="row bg-white border" id="divform">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tipocliente" id="individual"
+                                    value="I">
+                                <label class="form-check-label" for="inlineRadio1"> <b> Individual </b> </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tipocliente" id="compañia"
+                                    value="C" checked>
+                                <label class="form-check-label" for="inlineRadio2"> <b> Compañía </b> </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-6" id="divnombre">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="col-6" id="divapellidos">
+                            <input type="text" class="form-control" name="apellidos" placeholder="Apellidos">
+                        </div>
+                        </div>
+                    </div>
+                <div class="col-md-8 justify-content-end">
+                    <button id="file-upload" class="fas fa-camera" type="image"></button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="address1" class="col-sm-4 col-form-label">Company Address</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="calle1" type="text" placeholder="Calle" required>
+                                <input class="form-control" name="calle2" type="text" placeholder="Calle2">
+                                <div class="row">
+                                    <div class="col-sm-4">
+										<select class="form-control" name="ciudad" required>
+                                         <option selected disabled>Ciudad</option>
+                                    <option th:each="p1:${cliente}" th:value="${p1.Ciudad}" th:text="${p1.Ciudad}"></option>
+                                  </select>                                     </div>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="provincia" required>
+                                         <option selected disabled>Provincia</option>
+                                    <option th:each="p1:${cliente}" th:value="${p1.Provincia.Codigoprovincia}" th:text="${p1.Provincia.Nombreprovincia}"></option>
+                                  </select> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" name="CP" type="number" placeholder="C.P." required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="pais" required>
+                                        <option selected disabled>Selecciona un pais</option>
+                                    <option th:each="p1:${cliente}" th:value="${p1.Pais.Codigopais}" th:text="${p1.Pais.Nombrepais}"></option>
+                                  </select> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Nº identif. fiscal (NIF) </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="NIF" type="text" maxlength="8" placeholder="Por ejemplo, ESA00000000" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="tel"> Teléfono </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="tel"  maxlength="13" type="tel">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="mov"> Móvil </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="mov"  maxlength="13" type="tel">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="correo"> Correo electrónico </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="correo" type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="website"> Enlace a página web </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="website" type="url"
+                                    placeholder="e.j. https://www.odoo.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="categorias"> Categorías </label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="categorias">
+                                    <option selected disabled>Selecciona una categoría</option>
+                                    <option th:each="p1:${cliente}" th:value="${p1.Categorias}" th:text="${p1.Categorias}"></option>
+                                  </select> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" id="colfinal">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Contactos y direcciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Venta y compra</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Facturación/Contabilidad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Notas internas</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12" style="padding: 30px">
+                        <input type="submit" value="Añadir" id="botonanadir"
+                            onclick="añadir()">
+                    </div>
+                </div>
+            </div>
+          </form>
+        </div>
+  <script th:src="@{/javascript/formulario.js}"></script>
+</body>
+</html>

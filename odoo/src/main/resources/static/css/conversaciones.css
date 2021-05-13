@@ -1,0 +1,159 @@
+
+        #nav1 {
+            background-color: rgb(120, 109, 126);
+            text-align: center;
+            align-content: center;
+            padding-left: 20px;
+        }
+
+        a {
+            color: white;
+            font-size: 14px;
+        }
+
+        a:hover {
+            font-weight: bold;
+            color: rgb(65, 62, 62);
+        }
+
+        .nav-item {
+            margin-left: 10px;
+        }
+
+        #name {
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+
+        .container-fluid {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        #Bandeja {
+            color: rgb(172, 165, 165);
+            font-size: 23px;
+        }
+
+        #marcar {
+            color: rgb(172, 165, 165);
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        #buscar {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 2px solid rgb(172, 165, 165);
+            ;
+            border-radius: 0;
+            width: 600px;
+        }
+        
+        #botonvolver{
+        font-size: 25px;
+        color: rgb(247, 239, 239)
+        }
+        .fas .fa-comments{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .far .fa-clock{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .fas .fa-tools{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-sort-down{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-user-circle{
+        font-size: 25px;
+        color:rgb(247, 239, 239);
+        background-color: rgb(194, 189, 189); 
+        border-radius: 100%;
+        }
+        #textouser{
+        font-size: 14px; 
+        color: white;
+        }
+        
+        #botonbuscar{
+        background-color: white; 
+        color: rgb(172, 165, 165); 
+        border: 0;
+        }
+        
+       	#filtros{
+       	font-family:Arial;
+       	color: rgb(92, 87, 87);
+       	font-size: medium;
+       	}
+       	
+       	#favoritos{
+       	font-family:Arial;
+       	color: rgb(92, 87, 87); 
+       	font-size: medium;
+       	}
+       	
+       	#caja{
+       	border-top: 2px solid lightgray;
+       	color: lightslategray;
+       	margin-top: 20px;
+       	}
+       	
+       	#columnanegra{
+       	color: white;
+       	background-color: rgb(34,37,41);
+       	}
+        
+		#caja1{
+		padding-bottom: 10px; 
+		padding-top: 10px; 
+		border-bottom: 2px solid grey;
+		}
+		
+		.fas .fa-inbox{
+		color: white;
+		font-size: medium;
+		margin-right: 5px;
+		}
+		
+		.far .fa-star{
+		color: white;
+		font-size: medium;
+		margin-right: 5px;
+		}
+		
+		.fas .fa-history{
+		color: white;
+		font-size: medium;
+		margin-right: 5px;
+		}
+		
+		#caja2{
+		padding-bottom: 10px; 
+		padding-top: 10px; 
+		padding-left: 16px;
+		}
+		
+		#caja2nav1{
+		color: grey;
+		}
+		
+		pre{
+		color: white;
+		display: inline; 
+		font-weight: bold;
+		}
+       	
+       	#caja2nav2{
+       	 color:grey;
+       	}
+       	
+       .fas .fa-heart{
+       color:teal;
+       }
+       	

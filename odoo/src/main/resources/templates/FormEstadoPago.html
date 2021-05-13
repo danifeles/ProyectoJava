@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{css/formclientes.css}" type="text/css">
+<title>Formulario Estado de pago</title>
+</head>
+<body>
+    <div class="container p-4 my-4" id="div1">
+        <p id="textoClientes">Estado de pago /<span
+                id="textonew">&nbsp;New</span></p>
+        <div class="container p-4 my-4" id="contenedor">
+		<form action="/comercial" method="post">
+            <div class="row bg-white border" id="divform">
+                    <div class="col-sm-4">
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Código estado de pago </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="codigo_estadopago" name="codigo_estadopago" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Nombre estado de pago </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="nombre_estadopago" name="nombre_estadopago" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" style="padding: 30px">
+                        <input type="submit" value="Añadir" id="botonanadir"
+                            onclick="añadir()">
+                        <input type="button" id="botonvolver" onclick=" window.location.href='estadopago'" value="Volver">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+  <script th:src="@{/javascript/formulario.js}"></script>
+</body>
+</html>

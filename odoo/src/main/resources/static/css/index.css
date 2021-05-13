@@ -1,0 +1,54 @@
+ 
+  #barra {
+      border-top: 2px solid #999;
+    }
+    
+   #col1
+	{
+	padding: 10px;
+  	}
+
+ i[name=icono1] {
+      background-color: #42aeec;
+      color: white;
+      border-radius: 100%;
+      padding: 5px;
+      font-size: 20px;
+    }
+
+i[name=icono2] {
+      color: #4267b2;
+      background-color: white;
+      border-radius: 100px;
+      font-size: 30px;
+    }
+
+ i[name=icono3] {
+      background-color: #25D366;
+      color: white;
+      border-radius: 100%;
+      padding: 5px;
+      font-size: 20px;
+    }
+
+ #imagen {
+      border-right: 2px solid #999;
+    }
+
+ button[name=boton-contra]
+    {
+      color: black;
+    }
+
+ div[name=boton-entrar]
+    {
+      text-align: center;
+    }
+  
+  #botonentrar
+  {
+  width: 300px;
+  }
+  
+  
+  

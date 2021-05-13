@@ -1,0 +1,311 @@
+        #navbarra {
+            background-color: rgb(120, 109, 126);
+            text-align: center;
+            align-content: center;
+            padding-left: 20px;
+        }
+
+        a {
+            color: white;
+            font-size: 14px;
+        }
+
+        a:hover {
+            font-weight: bold;
+            color: rgb(65, 62, 62);
+        }
+        
+         #tablas {
+            color: white;
+            font-size: 14px;
+        }
+
+        #tablas:hover {
+            font-weight: bold;
+            color: rgb(65, 62, 62);
+        }
+
+        .nav-item {
+            margin-left: 10px;
+        }
+
+        #name {
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+
+        .container-fluid {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        #Ajustes {
+            color: rgb(172, 165, 165);
+            font-size: 23px;
+        }
+
+        #boton {
+            padding-top: 10px;
+        }
+
+        #marcar {
+            color: rgb(172, 165, 165);
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        #icon {
+            color: white;
+            padding: 4px;
+            font-size: 16px;
+            text-shadow: slategray 2px 2px 2px;
+            box-shadow: black 2px 2px 8px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        #buscar {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 2px solid rgb(172, 165, 165);
+            ;
+            border-radius: 0;
+            width: 600px;
+        }
+
+        span {
+            font-family: Arial;
+            font-size: 15px;
+        }
+        
+        .fas .fa-bars
+        {
+        font-size: 25px; 
+        color: rgb(247, 239, 239);
+        }
+        
+         .fas .fa-comments{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .far .fa-clock{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .fas .fa-tools{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-sort-down{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-user-circle{
+        font-size: 25px;
+        color:rgb(247, 239, 239);
+        background-color: rgb(194, 189, 189); 
+        border-radius: 100%;
+        }
+        #textouser{
+        font-size: 14px; 
+        color: white;
+        }
+        
+        #botonbuscar{
+        background-color: white; 
+        color: rgb(172, 165, 165); 
+        border: 0;
+        }
+        
+        #botonguardar{
+		color:white; 
+		border: 0; 
+		padding: 8px; 
+		background-color: cadetblue;
+		}
+		
+		#botondescargar{
+		color:cadetblue; 
+		border: 0; 
+		padding: 8px; 
+		background-color: white;
+		}
+		
+		#divtabla{
+        border-top: 2px solid lightgray;
+        color: lightslategray; 
+        margin-top: 20px;
+        }
+		
+		#nav1{
+		height: 800px; 
+		color: white;
+		background-color: rgb(34,37,41);
+		}
+		
+		#divlista{
+		padding-bottom: 10px;
+		padding-top: 10px;
+		 }
+		 
+		 i[name=icono1]{
+		 background-color:rgb(114, 138, 114);
+		 }
+		
+		i[name=icono2]
+		{
+        background-color:coral;
+        }
+        
+        i[name=icono3]
+        {
+        background-color:coral;
+        width: 23px;
+        }
+        
+        #col2{
+        padding-left: 0px; 
+        font-weight: bold;
+        }
+        
+        #usuarios{
+        color: black; 
+        background-color: rgb(233, 230, 238); 
+        height: 25px; 
+        margin-top: 10px;
+        }
+        
+        #textousuarios{
+		padding-left: 50px;
+		font-weight: bold; 
+		font-family: Arial;
+		}  
+        
+        #activeuser{
+		margin-left: 50px;
+		margin-top: 50px; 
+		border-left: 1px solid grey;
+		}
+		
+		i[name=circulopregunta]{
+		color: cadetblue;
+		background-color: white;
+		border-radius: 100%;
+		}
+		
+		#botonadministrarusuarios{
+		color:cadetblue; 
+		background-color: white;
+		border: none; 
+		padding-top: 18px;
+		}
+		
+		#colinvitar{
+		margin-left: 50px;
+		margin-top: 50px;
+		border-left: 1px solid grey;
+		}
+		
+		#rowemail
+		{
+		border-bottom: 1px solid grey; 
+		margin-top: 18px;
+		}
+		
+		#email
+		{
+		border: none; width: 500px;
+		}
+		
+		#colinvitar1{
+		padding-left: 45px;
+		}
+		
+		#botoninvitar{
+		padding: 5px;color:white;
+		border: 0; 
+		background-color: cadetblue;
+		}
+		
+		#remember{
+		margin-top: 18px;
+		}
+		
+		#odoopricing{
+		color: cadetblue; 
+		font-weight: bold;
+		}
+		
+		#rowcompanias{
+        color: black;
+        background-color: rgb(233, 230, 238);
+        height: 25px;
+        margin-top: 30px;
+		}
+		
+		#companiastexto{
+		padding-left: 50px; 
+		font-weight: bold; 
+		font-family: Arial;
+		}
+		
+		#colapasoft{
+		margin-left: 50px;
+		margin-top: 50px;
+		border-left: 1px solid grey;
+		}
+		
+		#espana{
+		color:rgb(199, 189, 189);
+		font-size: 14px; font-weight: normal;
+		}
+		
+		#botonactualizarinfo{
+		color:cadetblue; 
+		background-color: white; 
+		border: none; 
+		padding-top: 18px;
+		}
+		
+		#company{
+		margin-left: 50px;
+		margin-top: 50px;
+		border-left: 1px solid grey;
+		}
+		
+		#botonadministrarempresas{
+		color:cadetblue;
+		background-color: white; 
+		border: none; 
+		padding-top: 18px;
+		}
+		
+		#rowidiomas{
+		color: black; 
+		background-color: rgb(233, 230, 238); 
+		height: 25px; 
+		margin-top: 30px;
+		}
+		
+		#idiomastexto{
+		padding-left: 50px;
+		font-weight: bold;
+		font-family: Arial;
+		}
+		
+		#language{
+		margin-left: 50px;
+		margin-top: 50px;
+		border-left: 1px solid grey;
+		}
+		
+		#botonidioma{
+		color:cadetblue; 
+		background-color: white; 
+		border: none;
+		padding-top: 18px;
+		}
+		
+		
+
+
+    

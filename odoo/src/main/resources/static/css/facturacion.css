@@ -1,0 +1,170 @@
+
+        #nav1 {
+            background-color: rgb(120, 109, 126);
+            text-align: center;
+            align-content: center;
+            padding-left: 20px;
+        }
+
+        a {
+            color: white;
+            font-size: 14px;
+        }
+
+        a:hover {
+            font-weight: bold;
+            color: rgb(65, 62, 62);
+        }
+
+        .nav-item {
+            margin-left: 10px;
+        }
+
+        #name {
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+
+        .container-fluid {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        #Facturas {
+            color: rgb(172, 165, 165);
+            font-size: 23px;
+        }
+
+        #boton {
+            padding-top: 10px;
+        }
+
+        #buscar {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 2px solid rgb(172, 165, 165);
+            ;
+            border-radius: 0;
+            width: 600px;
+        }
+
+        #caja1 {
+            border: 2px solid rgb(172, 165, 165);
+            color: rgb(143, 134, 134);
+            padding: 5px;
+        }
+        
+        
+         #botonvolver{
+        font-size: 25px; 
+        color: rgb(247, 239, 239);
+        }
+        
+         .fas .fa-comments{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .far .fa-clock{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .fas .fa-tools{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-sort-down{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-user-circle{
+        font-size: 25px;
+        color:rgb(247, 239, 239);
+        background-color: rgb(194, 189, 189); 
+        border-radius: 100%;
+        }
+        #textouser{
+        font-size: 14px; 
+        color: white;
+        }
+        
+        #botonbuscar{
+        background-color: white; 
+        color: rgb(172, 165, 165); 
+        border: 0;
+        }
+        
+        #botonguardar{
+        color:white;
+        border: 0; 
+       	padding: 8px;
+        background-color: cadetblue;
+        }
+        
+        #botoncargar{
+        color:cadetblue;
+        border: 0;
+        padding: 8px; 
+        background-color: white;
+        }
+        
+        #filtro
+        {
+		background-color: rgb(120, 109, 126); 
+		color:rgb(247, 239, 239); 
+		padding: 3px;
+		}
+		
+		.fas .fa-times{
+		color:rgb(143, 134, 134);
+		}
+		
+		#row2{
+		padding-top: 10px;
+		}
+		
+		#navbar1{
+        font-family:Arial; 
+        color: rgb(92, 87, 87); 
+        font-size: medium;
+        }
+		
+		#botoncrear{
+		color:white;
+		border: 0; 
+		padding: 8px; 
+		background-color: cadetblue;
+		}
+
+		#botonborrar{
+		color:red;
+		border: 0;
+		padding: 8px;
+		background-color: white;
+		}
+		
+		 #navbar-agruparpor
+        {
+        padding-left: 8px;
+		}
+		
+		#navbar2
+		{
+		padding-left: 3px;
+		}
+		
+		 #divtabla{
+        border-top: 2px solid lightgray;
+        color: lightslategray; 
+        margin-top: 20px;
+        }
+        
+        #titulotabla{
+        border-bottom: 2px solid lightgrey;
+        }
+        
+        i[name=reloj]{
+        background-color: orange;
+        color: white;
+        padding: 3px;
+        border-radius: 100%; 
+        margin-right: 5px;
+        }

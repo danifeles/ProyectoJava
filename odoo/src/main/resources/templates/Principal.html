@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
+<title>Principal</title>
+    <link rel="stylesheet" th:href="@{css/principal.css}" type="text/css">
+</head>
+<body onload="leerCookie()">
+    <nav class="navbar justify-content-end">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-comments"></i>
+        </a>
+        <a class="navbar-brand" href="#">
+            <i class="far fa-clock"></i>
+        </a>
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-tools"></i>
+            <i class="fas fa-sort-down"></i>
+        </a>
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-user-circle"></i> 
+            <span th:if="${RegistroOk}" id="nombre1"> Bienvenido </span>
+        </a>
+      </nav>
+
+          <nav class="navbar justify-content-start" id="iconos">
+        <a class="navbar-brand" href="conversaciones">
+            <i class="fas fa-comment-dots" id="icon" name="icono1"></i>
+            <p id="texto"> Conversaciones </p>
+        </a>
+        <a class="navbar-brand" href="ventas">
+            <i class="fas fa-chart-line" id="icon" name="icono2"></i>
+            <p id="texto"> Ventas </p>
+        </a>
+        <a class="navbar-brand" href="facturacion">
+            <i class="fas fa-file-invoice-dollar" id="icon" name="icono3"></i>
+            <p id="texto"> Facturación </p>
+        </a>
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-cubes" id="icon" name="icono4"></i>
+            <p id="texto"> Aplicaciones </p>
+        </a>
+        <a class="navbar-brand" href="ajustes"                             >
+            <i class="fas fa-cog" id="icon" name="icono5"></i>
+            <p id="texto"> Ajustes </p>
+        </a>
+        </nav>
+<script th:src="@{/javascript/inicio.js}"></script>
+</body>
+</html>

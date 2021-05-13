@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{css/conversaciones.css}" type="text/css">
+<title>Conversaciones</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" id="nav1">
+        <a class="navbar-brand" href="principal">
+            <i class="fas fa-bars" id="botonvolver"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <a class="navbar-brand" id="name" href="#">Conversaciones</a>
+        </div>
+
+        <div class="navbar-nav justify-content-end">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-comments"></i>
+            </a>
+            <a class="navbar-brand" href="#">
+                <i class="far fa-clock"></i>
+            </a>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tools"></i>
+                <i class="fas fa-sort-down"></i>
+            </a>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-circle"></i>
+                <span id="textouser"> Apasoft </span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-md-auto">
+                <span id="Bandeja"> Bandeja de entrada </span>
+                <div id="marcar">
+                    <span>MARCAR TODO COMO LEIDO</span>
+                </div>
+            </div>
+            <div class="col-md-auto">
+                <form class="form-inline">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <input class="form-control" id="buscar" type="search" placeholder="Buscar..">
+                        </div>
+                        <div class="col-sm-2">
+                            <button id="botonbuscar"
+                                type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px;">
+                        <nav class="navbar navbar-expand-lg justify-content-between">
+                            <div class="navbar-nav">
+                                <a class="navbar-brand" id="filtros" href="#">
+                                    <i class="fas fa-filter"></i><span style="padding-left: 3px;"> Filtros </span>
+                                </a>
+                                <a class="navbar-brand" id="favoritos" href="#">
+                                    <i class="fas fa-star"></i><span style="padding-left: 3px;"> Favoritos </span>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="caja">
+            <div class="col-md-3">
+                <ul class="nav flex-column" id="columnanegra">
+                    <div id="caja1">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-inbox"></i>Bandeja de entrada</a>
+                </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-star"></i>Destacado</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-history"></i>Historial</a>
+                </li>
+            </div>
+
+            <div id="caja2">
+                    <li class="nav-item" id="caja2nav1">
+                        CANALES <pre>                      +</pre>   
+                        <a class="nav-link" href="#"># general</a>
+                    </li>
+                    <li class="nav-item">
+                        MENSAJES DIRECTOS <pre>           +</pre>   
+                        <a class="nav-link" href="#"><i class="fas fa-heart"></i> OdooBot </a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

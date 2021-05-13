@@ -1,0 +1,73 @@
+
+html{
+    background-color: rgb(120, 109, 126);
+}
+.navbar{
+    background-color: rgb(120, 109, 126);
+    text-align: center;
+    align-content: center;
+}
+#iconos{
+    padding: 150px;
+}
+#icon{
+    color: white;
+    padding: 20px; 
+    font-size: 40px;
+    text-shadow: slategray 2px 2px 2px;
+    box-shadow: black 2px 2px 8px;
+    margin-left: 30px;
+    text-align: center;
+}
+#texto{
+    color: white;
+    padding-top: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    margin-left: 30px;
+}
+
+.fas {
+    color: rgb(247, 239, 239);
+}
+
+.fas .fa-comments {
+    font-size: 23px; 
+}
+
+.fas .fa-user-circle {
+    font-size: 25px; 
+    background-color: rgb(194, 189, 189); 
+    border-radius: 100%;
+}
+
+i[name=icono1] {
+    background-color: palevioletred;
+}
+
+i[name=icono2] {
+background-color:coral;
+}
+
+i[name=icono3] {
+background-color:coral;
+width: 80px;
+}
+
+i[name=icono4] {
+background-color:darkred;
+}
+
+i[name=icono5] {
+background-color:rgb(114, 138, 114);
+}
+
+.far {
+    font-size: 23px; 
+    color: rgb(247, 239, 239);
+}
+
+#nombre1 {
+    font-size: 14px; 
+    color: white;
+}

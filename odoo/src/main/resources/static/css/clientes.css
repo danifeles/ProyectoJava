@@ -1,0 +1,209 @@
+        #nav1 {
+            background-color: rgb(120, 109, 126);
+            text-align: center;
+            align-content: center;
+            padding-left: 20px;
+        }
+
+        a {
+            color: white;
+            font-size: 14px;
+        }
+
+        a:hover {
+            font-weight: bold;
+            color: rgb(65, 62, 62);
+        }
+
+        #pedidos {
+            color: white;
+            font-size: 14px;
+        }
+
+        #pedidos:hover {
+            font-weight: bold;
+            color: rgb(65, 62, 62);
+        }
+
+        .nav-item {
+            margin-left: 10px;
+        }
+
+        #name {
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+
+        .container-fluid {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        #Clientes {
+            color: rgb(172, 165, 165);
+            font-size: 23px;
+        }
+
+        #boton {
+            padding-top: 10px;
+        }
+
+        #buscar {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 2px solid rgb(172, 165, 165);
+            ;
+            border-radius: 0;
+            width: 600px;
+        }
+
+        #caja1 {
+            border: 2px solid rgb(172, 165, 165);
+            color: rgb(143, 134, 134);
+            padding: 5px;
+        }
+        
+        i[name=botonvolver]{
+        font-size: 25px; 
+        color: rgb(247, 239, 239);
+        }
+        
+         .fas .fa-comments{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .far .fa-clock{
+        font-size: 23px; 
+        color: rgb(247, 239, 239);
+        }
+        .fas .fa-tools{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-sort-down{
+        color:rgb(247, 239, 239);
+        }
+        .fas .fa-user-circle{
+        font-size: 25px;
+        color:rgb(247, 239, 239);
+        background-color: rgb(194, 189, 189); 
+        border-radius: 100%;
+        }
+        #textouser{
+        font-size: 14px; 
+        color: white;
+        }
+        
+        #botonbuscar{
+        background-color: white; 
+        color: rgb(172, 165, 165); 
+        border: 0;
+        }
+        
+        #botoncrear{
+		color:white; 
+		border: 0; 
+		padding: 8px; 
+		background-color: cadetblue;
+		}
+		
+		.fas .fa-filter{
+        background-color: rgb(120, 109, 126);
+        color:rgb(247, 239, 239); 
+        padding: 3px;
+        }
+        
+        .fas .fa-times{
+        color:rgb(143, 134, 134);
+        }
+        
+        #navbar1{
+        font-family:Arial; 
+        color: rgb(92, 87, 87); 
+        font-size: medium;
+        }
+        
+         #navbar-agruparpor
+        {
+        padding-left: 8px;
+		}
+		
+		#navbar2
+		{
+		padding-left: 3px;
+		}
+		
+		#divusuarios{
+		border-top: 2px solid lightgray;
+		margin-top: 20px;
+		background-color: rgba(248, 247, 247, 0.842); 
+		padding:18px;
+		}
+	
+		#divusuarios3{
+		width: 300px;
+		border: 1px solid grey;
+		background-color: white;
+		margin-bottom: 20px;
+		margin-left: 50px;
+		}
+		
+		i[name=usuario]{
+		font-size: 100px; 
+		background-color:rgb(247, 239, 239); 
+		color: rgb(194, 189, 189);
+		}
+		
+		#textocliente{
+		font-family: Arial;
+		width: 20px;
+		padding: 5px;
+		}
+		
+		i[name=relojcliente]{
+		color:rgb(194, 189, 189);
+		}
+		
+		#flechaizq{
+		padding-left: 10px;
+		font-weight: bold;
+		}
+		
+		#flechader{
+		padding-right: 10px;
+		font-weight: bold;
+		}
+		
+		#rownavbuscar{
+		padding-top: 10px;
+		}
+		
+		#divtabla{
+		border-top: 2px solid lightgray;
+		color: lightslategray; 
+		margin-top: 20px;
+		}
+		
+		#titulotabla{
+		border-bottom: 2px solid lightgrey;
+		}
+
+		#botonborrar{
+		color:red;
+		border: 0;
+		padding: 8px;
+		background-color: white;
+		}
+		
+		button[name=botonborrarcliente]{
+		width: 10px;
+		height: 10px;
+		margin: 5px;
+		margin-right: 20px;
+		border: 0;
+		background-color: white;
+		}
+		
+		#foto {
+		width: 100px;
+		}
