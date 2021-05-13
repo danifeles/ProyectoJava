@@ -132,7 +132,7 @@
 													<p>¿Estas seguro de que quieres eliminar?</p>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-default" data-dismiss="modal" onclick="borrarcliente(1)">Si</button>
+													<button type="button" class="btn btn-default" th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'"  data-dismiss="modal">Si</button>
 													<button type="button" class="btn btn-default"
 														data-dismiss="modal">No</button>
 												</div>
