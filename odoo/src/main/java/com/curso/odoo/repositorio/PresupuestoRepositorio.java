@@ -11,6 +11,9 @@ public interface PresupuestoRepositorio extends JpaRepository<Presupuesto, Integ
 	
 	List<Presupuesto> findByCodigopresupuesto (Integer buscarnumero); 
 	List<Presupuesto> findByClienteNombreclienteContaining (String buscarcliente); 
-
-
+	List<Presupuesto> findByClienteCodigocliente (int codigocliente); 
+	List<Presupuesto> findByComercialCodigocomercial (int codigocomercial); 
+	List<Presupuesto> findByEstadoCodigoestado(int codigoestado); 
+	List<Presupuesto> findByActividadCodigoactividad(int codigoactividad);
+	
 }
