@@ -84,6 +84,7 @@ function borrarestadopago() {
 }
 
 function borrarcliente(clicked) {
+		console.log("Hola2")
 		console.log("Hola");
 		console.log("Ha llegado aqui"+clicked);
 		window.location.href = "http://localhost:8080/borrarcliente/"+clicked
