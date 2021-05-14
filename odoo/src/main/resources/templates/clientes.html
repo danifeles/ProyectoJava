@@ -2,17 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+	integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+	crossorigin="anonymous" />
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous">
         </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+	integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+	crossorigin="anonymous">
         </script>
-    <script src="/bootstrap-5.0.0-beta3-dist/bootstrap/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+<script src="/bootstrap-5.0.0-beta3-dist/bootstrap/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+	integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+	crossorigin="anonymous">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/e22ea825df.js"
+	crossorigin="anonymous"></script>
+
+
 <link rel="stylesheet" th:href="@{css/clientes.css}" type="text/css">
 <title>Clientes</title>
 </head>
@@ -109,11 +125,13 @@
 									<p id="textocliente" th:text="${p1.Nombrecliente}"></p>
 									<button th:id="${p1.Codigocliente}" type="button"
 										name="botonborrarcliente" data-toggle="modal"
-										data-target="#myModal" th:attrappend="data-target=${p1.Codigocliente}">
+										data-target="#myModal"
+										th:attrappend="data-target=${p1.Codigocliente}">
 										<i class="fas fa-trash-alt"></i>
 									</button>
 
-									<div class="modal fade" id="myModal" role="dialog" th:attrappend="id=${p1.Codigocliente}">
+									<div class="modal fade" id="myModal" role="dialog"
+										th:attrappend="id=${p1.Codigocliente}">
 										<div class="modal-dialog">
 
 											<!-- Modal content-->
@@ -125,8 +143,9 @@
 													<p>¿Estas seguro de que quieres eliminar?</p>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-default"
-														th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'">Si</button>
+												<button type="button" class="btn btn-default"
+														th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'"
+														>Si</button>
 													<button type="button" class="btn btn-default"
 														data-dismiss="modal">No</button>
 												</div>
@@ -140,11 +159,12 @@
 							</div>
 						</div>
 					</div>
+					<script th:src="@{/javascript/ventas.js}"></script>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script th:src="@{/javascript/ventas.js}"></script>
+	
 
 </body>
 </html>
