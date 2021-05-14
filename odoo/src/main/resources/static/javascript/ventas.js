@@ -97,11 +97,11 @@ function borrarestadopago() {
 }
 
 function borrarcliente(clicked) {
-	debugger;
-		System.out.println("Ha llegado aqui"+clicked);
+		debugger;
+		console.log("Ha llegado aqui"+clicked);
 		window.location.href = "http://localhost:8080/borrarcliente/"+clicked
 			
 			
-} 
+}
 
 
