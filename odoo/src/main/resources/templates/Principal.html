@@ -23,7 +23,7 @@
         </a>
         <a class="navbar-brand" href="#">
             <i class="fas fa-user-circle"></i> 
-            <span th:if="${RegistroOk}" id="nombre1"> Bienvenido </span>
+            <span id="nombre1">Bienvenido/a, </span><span th:if="${LoginOk}" id="nombre1" th:text="${LoginOk}"> Bienvenido </span>
         </a>
       </nav>
 

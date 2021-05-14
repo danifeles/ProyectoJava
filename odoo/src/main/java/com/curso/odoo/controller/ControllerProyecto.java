@@ -81,6 +81,7 @@ public class ControllerProyecto {
 		 if(c1.isPresent()	)	{
 			if(contrasena.equals(c1.get().getContrasena()))
 			{
+				modelo.addAttribute("LoginOk", usuario);
 				return "principal";
 			} 
 			else 
