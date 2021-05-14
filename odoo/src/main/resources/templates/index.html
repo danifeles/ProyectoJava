@@ -7,17 +7,17 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{css/index.css}" type="text/css">
+   
 <title>Inicio</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container ">
     <div class="row">
       <div class="col-6 pt-4" id="col1">
-        <img th:src="@{/imagenes/pngegg.png}" class="img-fluid" alt="Responsive image" width="50px">
       </div>
       <div class="col-6 pt-5">
         <div class="row justify-content-center">
-          <div class="col-4">
+          <div class="col-4" style="color: aliceblue;">
             Iniciar sesión con
           </div>
           <div class="col-1">
@@ -53,23 +53,23 @@
   <div class="container">
     <div class="row mt-4">
       <div class="col-6 pt-1 pr-5" id="imagen">
-        <img th:src="@{/imagenes/imagen.jpg}" class="img-fluid" alt="Responsive image">
+        <img id="profile-img" class="rounded-circle profile-img-card" src="https://i.imgur.com/6b6psnA.png" />
       </div>
       <div class="col-6 pt-1 pl-5">
         <form action="/" method="post">
           <div class="form-group">
-            <label for="usuario"> Usuario </label>
+            <label for="usuario" style="color: aliceblue;" > Usuario </label>
             <input type="text" class="form-control" id="usuario" name="usuario" required>
           </div>
           <div class="form-group mb-4 mr-sm-2">
-            <label for="contrasena"> Contraseña </label>
+            <label for="contrasena" style="color: aliceblue;" > Contraseña </label>
             <input type="password" class="form-control" id="contrasena" name="contrasena" required>
             <div class="form-inline justify-content-between">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="Check1">
-                <label class="form-check-label" for="Check1"> Recuérdame </label>
+                <label class="form-check-label" for="Check1" style="color: aliceblue;" > Recuérdame </label>
               </div>
-              <button type="button" class="btn" name="boton-contra"> ¿Has perdido tu contraseña? </button>
+              <button type="button" class="btn" name="boton-contra" style="color: aliceblue;" > ¿Has perdido tu contraseña? </button>
             </div>
           </div>
           
@@ -82,15 +82,16 @@
           <div class="form-group" name="boton-entrar">
             <button type="submit" class="btn btn-primary" id="botonentrar"> Entrar </button>
           </div>
+          <br/>
           <div class="form-inline">
-            <label for="boton"> ¿No tienes cuenta? </label>
-            <button type="button" id="boton" class="btn"><a href="registro"> Registrarse
+            <label for="boton" style="color: aliceblue;" > ¿No tienes cuenta? </label>
+            <button type="button" id="boton" class="btn"><a style="color: crimson;" href="registro"> Registrarse
               </a></button>
            </form>
           </div>
       </div>
     </div>
-    Hola
+
     <script th:src="@{/javascript/inicio.js}"></script>
 </body>
 </html>
