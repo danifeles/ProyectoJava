@@ -305,7 +305,9 @@
 		padding-top: 18px;
 		}
 		
-		
-
+		i[name=botonvolver]{
+        font-size: 25px; 
+        color: rgb(247, 239, 239);
+        }
 
     

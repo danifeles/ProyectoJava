@@ -1,35 +1,22 @@
         
-        document.getElementById("primeracheckbox").addEventListener("change", seleccionar);
-		
-		function deseleccionar () {
-			var lista = document.getElementsByTagName("input")
-			for (i=0; i<lista.length; i++) 
-			{
-				if(lista[i].type == 'checkbox')
-				{
-					lista[i].checked = false;
-				}
-			}
-			document.getElementById("primeracheckbox").addEventListener("change", seleccionar);
-
-		}
-
-		function seleccionar () {
-			var lista = document.getElementsByTagName("input")
-			for (i=0; i<lista.length; i++) 
-			{
-				if(lista[i].type == 'checkbox')
-				{
-					lista[i].checked = true;
-				}
-			}
-		document.getElementById("primeracheckbox").addEventListener("change", deseleccionar);
-
-		}
-		
-		
-
-
+function checkAll(input) {
+     var checkboxes = document.getElementsByTagName('input');
+     if (input.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = 1;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = 0;
+             }
+         }
+     }
+ }
+        
 function borrar() {
 	var lista = document.getElementsByTagName("input")
 	for (i=0; i<lista.length; i++) 
