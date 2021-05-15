@@ -1,6 +1,6 @@
 
         #nav1 {
-            background-color: rgb(120, 109, 126);
+            background-color: darkblue;
             text-align: center;
             align-content: center;
             padding-left: 20px;
@@ -82,7 +82,7 @@
         
         #botonbuscar{
         background-color: white; 
-        color: rgb(172, 165, 165); 
+        color: rgb(0, 0, 0); 
         border: 0;
         }
         

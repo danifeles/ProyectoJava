@@ -1,5 +1,5 @@
         #navbarra {
-            background-color: rgb(120, 109, 126);
+            background-color: darkblue;
             text-align: center;
             align-content: center;
             padding-left: 20px;
@@ -112,7 +112,7 @@
         
         #botonbuscar{
         background-color: white; 
-        color: rgb(172, 165, 165); 
+        color: rgb(0, 0, 0); 
         border: 0;
         }
         
@@ -120,7 +120,7 @@
 		color:white; 
 		border: 0; 
 		padding: 8px; 
-		background-color: cadetblue;
+		background-color:limegreen;
 		}
 		
 		#botondescargar{
@@ -223,7 +223,7 @@
 		#botoninvitar{
 		padding: 5px;color:white;
 		border: 0; 
-		background-color: cadetblue;
+		background-color:limegreen;
 		}
 		
 		#remember{
