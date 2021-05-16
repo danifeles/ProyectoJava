@@ -55,3 +55,29 @@ function enviar_registro() {
         alert("Contraseñas no coinciden");
     }
   }
+  
+  function mostrarContrasena1(){
+      var tipo = document.getElementById("contrasena");
+      var ojo = document.getElementById("ojo1");
+		
+      if(tipo.type == "password"){
+          ojo.className = "fas fa-eye";
+          tipo.type = "text";
+      }else{
+		  ojo.className = "fas fa-eye-slash";
+          tipo.type = "password";
+      }
+  }
+  
+  function mostrarContrasena2(){
+      var tipo = document.getElementById("confirmarcontrasena");
+      var ojo = document.getElementById("ojo2");
+		
+      if(tipo.type == "password"){
+          ojo.className = "fas fa-eye";
+          tipo.type = "text";
+      }else{
+		  ojo.className = "fas fa-eye-slash";
+          tipo.type = "password";
+      }
+  }

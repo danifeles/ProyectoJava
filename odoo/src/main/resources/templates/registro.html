@@ -12,37 +12,36 @@
 <body>
 <div class="wrapper">
     <form id="formulario" action="/registro" method="post">
-        <div class="h5 font-weight-bold text-center mb-3">Registration</div>
+        <div class="h5 font-weight-bold text-center mb-3">Registro</div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="far fa-user"></span></div><input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+            <div class="icon"><span class="far fa-user"></span></div><input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="far fa-user"></span></div><input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos">
+            <div class="icon"><span class="far fa-user"></span></div><input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" required>
 
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="far fa-user"></span></div><input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+            <div class="icon"><span class="far fa-user"></span></div><input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="fas fa-phone"></span></div> <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono">
+            <div class="icon"><span class="fas fa-phone"></span></div> <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono" required>
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="far fa-envelope"></span></div> <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico">
+            <div class="icon"><span class="far fa-envelope"></span></div> <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="fas fa-key"></span></div>  <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña">
-            <div class="icon btn"><span class="fas fa-eye-slash"></span></div>
+            <div class="icon"><span class="fas fa-key"></span></div>  <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" onclick="mostrarContrasena()" required>
+            <div class="icon btn"><button id="ojo" type="button" onclick="mostrarContrasena1()"><span id="ojo1" class="fas fa-eye-slash"></span></button></div>
             
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="icon"><span class="fas fa-key"></span></div>  <input type="password" class="form-control" id="confirmarcontrasena" placeholder="Confirmar contraseña">
-            <div class="icon btn"><span class="fas fa-eye-slash"></span></div>
+            <div class="icon"><span class="fas fa-key"></span></div> <input type="password" class="form-control" id="confirmarcontrasena" placeholder="Confirmar contraseña"  onclick="mostrarContrasena()" required>
+            <div class="icon btn"><button id="ojo" type="button" onclick="mostrarContrasena2()"><span id="ojo2" class="fas fa-eye-slash"></span></button></div>
             
-        </div >
-  
-        <button type="submit"   class="btn btn-primary "  id="crearcuenta" onclick="enviar_registro()"> Crear una
+        </div>
+        <button type="submit" class="btn btn-primary" id="crearcuenta" onclick="enviar_registro()"> Crear una
             cuenta</button>
-       
+       <button type="button" class="btn btn-primary" id="volver" onclick=" window.location.href='/'"> Volver </button>
         <div class="connect border-bottom mt-4 mb-4"></div>
         <ul class="p-0 social-links">
             <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
