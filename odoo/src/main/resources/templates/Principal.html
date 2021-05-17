@@ -26,29 +26,57 @@
             <span id="nombre1">Bienvenido/a, </span><span th:if="${LoginOk}" id="nombre1" th:text="${LoginOk}"> Bienvenido </span>
         </a>
       </nav>
-
-          <nav class="navbar justify-content-start" id="iconos">
-        <a class="navbar-brand" href="conversaciones">
-            <i class="fas fa-comment-dots" id="icon" name="icono1"></i>
-            <p id="texto"> Conversaciones </p>
-        </a>
-        <a class="navbar-brand" href="ventas">
-            <i class="fas fa-chart-line" id="icon" name="icono2"></i>
-            <p id="texto"> Ventas </p>
-        </a>
-        <a class="navbar-brand" href="facturacion">
-            <i class="fas fa-file-invoice-dollar" id="icon" name="icono3"></i>
-            <p id="texto"> Facturación </p>
-        </a>
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-cubes" id="icon" name="icono4"></i>
-            <p id="texto"> Aplicaciones </p>
-        </a>
-        <a class="navbar-brand" href="ajustes"                             >
-            <i class="fas fa-cog" id="icon" name="icono5"></i>
-            <p id="texto"> Ajustes </p>
-        </a>
-        </nav>
+<div class="container" id="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox">
+                    <div class="service-icon" onclick=" window.location.href='conversaciones'">
+                        <i class="fas fa-comment-dots" ></i></span>
+                    </div>
+                    
+                     <h4 id="conver">Conversaciones</h4>
+                </div>
+            </div>
+            
+            <div class="col-md-2 col-sm-4">
+            <div class="serviceBox purple">
+                    <div class="service-icon" onclick=" window.location.href='ventas'" >
+                   
+                        <span> <i class="fas fa-chart-line"></i></span>
+                    </div>
+                     <h4 id="vent"> Ventas </h4>
+          </div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="serviceBox red">
+                    <div class="service-icon" onclick=" window.location.href='facturacion'" >
+                        <span> <i class="fas fa-file-invoice-dollar"></i></span>
+                    </div>
+                     <h4 id="fac">Facturación</h4>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="serviceBox blue">
+                    <div class="service-icon" href="#">
+                        <span> <i class="fas fa-cubes" ></i></span>
+                    </div>
+                     <h4 id="apli">Aplicaciones</h4>
+                 
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="serviceBox red">
+                    <div class="service-icon" onclick=" window.location.href='ajustes'">
+                        <span> <i class="fas fa-cog" ></i></span>
+                    </div>
+                     <h4 id="ajus" >Ajustes</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+       
 <script th:src="@{/javascript/inicio.js}"></script>
 </body>
 </html>

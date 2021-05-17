@@ -4,6 +4,7 @@
             align-content: center;
             padding-left: 20px;
         }
+       
 
         a {
             color: white;
@@ -95,10 +96,26 @@
         }
         
         #botonbuscar{
-        background-color: white; 
+       
         color: rgb(0, 0, 0); 
         border: 0;
+        
         }
+        #Buscar{
+           -moz-border-radius: 11px;
+           -webkit-border-radius: 11px;
+            border-radius: 11px;
+           behavior: url(border-radius.htc);
+        }
+        
+        #Buscar2{
+        
+        -moz-border-radius: 11px;
+           -webkit-border-radius: 11px;
+            border-radius: 11px;
+           behavior: url(border-radius.htc);
+        }
+        
         
         .fas .fa-filter{
         background-color: rgb(120, 109, 126);

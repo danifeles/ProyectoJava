@@ -112,59 +112,56 @@
 				</form>
 			</div>
 		</div>
-		<div id="divusuarios">
+		<div class="container" >
 			<div class="row">
-				<div class="col-4" th:each="p1:${cliente}">
-					<div id="divusuarios3">
-						<div class="row">
-							<div class="col-4">
-								<img th:src="${p1.Photo}" id="foto">
-							</div>
-							<div class="col-8">
-								<div class="row justify-content-between">
-									<p id="textocliente" th:text="${p1.Nombrecliente}"></p>
-									<button th:id="${p1.Codigocliente}" type="button"
-										name="botonborrarcliente" data-toggle="modal"
-										data-target="#myModal"
-										th:attrappend="data-target=${p1.Codigocliente}">
-										<i class="fas fa-trash-alt"></i>
-									</button>
-
-									<div class="modal fade" id="myModal" role="dialog"
-										th:attrappend="id=${p1.Codigocliente}">
-										<div class="modal-dialog">
-
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<h4 class="modal-title">Eliminar cliente</h4>
-												</div>
-												<div class="modal-body">
-													<p>¿Estas seguro de que quieres eliminar?</p>
-												</div>
-												<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-														th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'"
-														>Si</button>
-													<button type="button" class="btn btn-default"
-														data-dismiss="modal">No</button>
-												</div>
-											</div>
-
-
+			<div class="col-md-3 col-6" th:each="p1:${cliente}">
+				
+						
+						
+							
+								
+								
+									<div class="our-team">
+										<div class="pic">
+											<img th:src="${p1.Photo}" >
+											<p id="textocliente" th:text="${p1.Nombrecliente}"></p>
+											<button th:id="${p1.Codigocliente}" type="button"
+												name="botonborrarcliente" data-toggle="modal"
+												data-target="#myModal"
+												th:attrappend="data-target=${p1.Codigocliente}">
+												<i class="fas fa-trash-alt"></i>
+											</button>
 										</div>
-									</div>
+                                       	<div class="modal fade" id="myModal" role="dialog"
+											th:attrappend="id=${p1.Codigocliente}">
+											<div class="modal-dialog">
 
-								</div>
-							</div>
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title">Eliminar cliente</h4>
+													</div>
+													<div class="modal-body">
+														<p>¿Estas seguro de que quieres eliminar?</p>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default"
+															th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'">Si</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal">No</button>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+					
 						</div>
+						
 					</div>
-					<script th:src="@{/javascript/ventas.js}"></script>
 				</div>
-			</div>
+		</div>	
 		</div>
-	</div>
-	
-
+		<script th:src="@{/javascript/ventas.js}"></script>
 </body>
 </html>
