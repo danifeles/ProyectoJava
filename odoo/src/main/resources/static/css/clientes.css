@@ -155,9 +155,9 @@
 		}
 		
 		#textocliente{
-		font-family: Arial;
-		width: 20px;
-		padding: 5px;
+		
+		width:200xp;
+		left: 300xp;
 		}
 		
 		i[name=relojcliente]{
@@ -202,13 +202,18 @@
 		margin-right: 20px;
 		border: 0;
 		background-color: white;
+		color:red;
+		
 		}
 		
 		#foto {
-		width: 100px;
+		width: 50px;
 		}
 		
-		.demo{ background: #262526; }
+		
+
+
+.demo{ background: #262526; }
 .our-team{
     padding: 20px 15px 30px;
     background: #fff;
@@ -270,10 +275,17 @@
 }
 .our-team:hover .social li a{
     background: #17bebb;
-    color: #fff;
+    color: #808080;
 }
 @media only screen and (max-width: 990px){
     .our-team{ margin-bottom: 30px; }
 }
-		
+
+
+
+
+
+
+
+	
 		

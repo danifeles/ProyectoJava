@@ -67,104 +67,102 @@
 				</div>
 			</div>
 			<div class="col-md-8">
-					<div class="row">
-						<form class="row g-2" action="/buscarclientes" method="post">
-					<div class="col-auto">
-							 <i class="fas fa-filter"></i>
-							<select class="custom-select" name="filtro" style="width: 120px; padding: 6px; border:0;">
- 							 <option value="0" selected> Filtrar por</option>
- 							 <option value="1">Número cliente</option>
-  								<option value="2">Nombre Cliente</option> 
+				<div class="row">
+					<form class="row g-2" action="/buscarclientes" method="post">
+						<div class="col-auto">
+							<i class="fas fa-filter"></i> <select class="custom-select"
+								name="filtro" style="width: 120px; padding: 6px; border: 0;">
+								<option value="0" selected>Filtrar por</option>
+								<option value="1">Número cliente</option>
+								<option value="2">Nombre Cliente</option>
 							</select>
+						</div>
+
+						<div class="col-auto">
+
+							<input class="form-control" name="buscar" placeholder="Buscar..">
+						</div>
+						<div class="col-auto">
+
+							<button id="botonbuscar" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row" id="rownavbuscar">
+				<nav class="navbar navbar-expand-lg justify-content-between">
+					<div class="navbar-nav">
+						<a class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-filter"></i><span id="navbar2"> Filtros </span>
+						</a> <a class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-bars"></i><span id="navbar-agruparpor">
+								Agrupar por </span>
+						</a> <a class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-star"></i><span id="navbar2"> Favoritos </span>
+						</a>
 					</div>
-					
-							<div class="col-auto">
+					<div class="navbar-nav">
+						<a class="navbar-brand" id="navbar1">1-1 / 1</a> <a
+							class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-chevron-left" id="flechaizq"></i>
+						</a> <a class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-chevron-right" id="flechader"></i>
+						</a> <a class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-grip-horizontal"></i>
+						</a> <a class="navbar-brand" id="navbar1" href="#"> <i
+							class="fas fa-sliders-h"></i>
+						</a>
+					</div>
+				</nav>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-6" th:each="p1:${cliente}">
+				<div class="our-team">
+					<div class="pic">
+						<img id="img" th:src="${p1.Photo}">
+					</div>
+					<h3 class="title" th:text="${p1.Nombrecliente}"></h3>
+					<span class="post" th:text="${p1.Codigocliente}"></span>
+					<button th:id="${p1.Codigocliente}" type="button"
+						name="botonborrarcliente" data-toggle="modal"
+						data-target="#myModal"
+						th:attrappend="data-target=${p1.Codigocliente}">
+						<i class="fas fa-trash-alt"></i>
+					</button>
+				</div>
+				<div class="modal fade" id="myModal" role="dialog"
+					th:attrappend="id=${p1.Codigocliente}">
+					<div class="modal-dialog">
 
-								<input class="form-control" name="buscar"
-									placeholder="Buscar..">
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Eliminar cliente</h4>
 							</div>
-							<div class="col-auto">
+							<div class="modal-body">
+								<p>¿Estas seguro de que quieres eliminar?</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'">Si</button>
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">No</button>
+							</div>
+						</div>
 
-								<button id="botonbuscar" type="submit">
-									<i class="fas fa-search"></i>
-								</button>
-							</div>
-						</form>
 					</div>
 				</div>
-					<div class="row" id="rownavbuscar">
-						<nav class="navbar navbar-expand-lg justify-content-between">
-							<div class="navbar-nav">
-								<a class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-filter"></i><span id="navbar2"> Filtros </span>
-								</a> <a class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-bars"></i><span id="navbar-agruparpor">
-										Agrupar por </span>
-								</a> <a class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-star"></i><span id="navbar2"> Favoritos </span>
-								</a>
-							</div>
-							<div class="navbar-nav">
-								<a class="navbar-brand" id="navbar1">1-1 / 1</a> <a
-									class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-chevron-left" id="flechaizq"></i>
-								</a> <a class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-chevron-right" id="flechader"></i>
-								</a> <a class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-grip-horizontal"></i>
-								</a> <a class="navbar-brand" id="navbar1" href="#"> <i
-									class="fas fa-sliders-h"></i>
-								</a>
-							</div>
-						</nav>
-					</div>
-				</form>
 			</div>
 		</div>
-		<div class="container" >
-			<div class="row">
-			<div class="col-md-3 col-6" th:each="p1:${cliente}">
-									<div class="our-team">
-										<div class="pic">
-											<img th:src="${p1.Photo}" >
-											<p id="textocliente" th:text="${p1.Nombrecliente}"></p>
-											<button th:id="${p1.Codigocliente}" type="button"
-												name="botonborrarcliente" data-toggle="modal"
-												data-target="#myModal"
-												th:attrappend="data-target=${p1.Codigocliente}">
-												<i class="fas fa-trash-alt"></i>
-											</button>
-										</div>
-                                       	<div class="modal fade" id="myModal" role="dialog"
-											th:attrappend="id=${p1.Codigocliente}">
-											<div class="modal-dialog">
-
-												<!-- Modal content-->
-												<div class="modal-content">
-													<div class="modal-header">
-														<h4 class="modal-title">Eliminar cliente</h4>
-													</div>
-													<div class="modal-body">
-														<p>¿Estas seguro de que quieres eliminar?</p>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-default"
-															th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'">Si</button>
-														<button type="button" class="btn btn-default"
-															data-dismiss="modal">No</button>
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-					
-						</div>
-						
-					</div>
-				</div>
-		</div>	
-		</div>
-		<script th:src="@{/javascript/ventas.js}"></script>
+	</div>
+	</div>
+	</div>
+	<script th:src="@{/javascript/ventas.js}"></script>
 </body>
 </html>
