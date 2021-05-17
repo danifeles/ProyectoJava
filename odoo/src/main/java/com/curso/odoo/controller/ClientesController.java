@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -136,20 +137,48 @@ public class ClientesController {
 		
 	}
 	
-	@PostMapping("/buscarclientes")
-	public String buscarclientes(@Param("buscarcliente") String buscarcliente, Model modelo)
+	@PostMapping("/buscarclientes")  
+	public String buscarclientes(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
+		System.out.println(filtro);
 		
-		List<Cliente> cliente = clirepo.findByNombreclienteContaining (buscarcliente);
-
+		if(filtro == 1) {
+		List<Cliente> cliente = clirepo.findByCodigocliente (Integer.parseInt(buscar));
+		
 		
 		for (Cliente x: cliente) {
 
-			x.getNombrecliente();
-			x.getPhoto();
-			
+			x.getCodigocliente();
+			x.getNif();
+			x.getTelefono();
+
 		} 
 		modelo.addAttribute("cliente", cliente);
+		} else if(filtro == 2) {
+			List<Cliente> cliente = clirepo.findByNombreclienteContaining(buscar);
+
+			for (Cliente x: cliente) {
+
+				x.getCodigocliente();
+				x.getNif();
+				x.getTelefono();
+			} 
+
+			modelo.addAttribute("cliente", cliente);
+		} else if(filtro == 0){
+			List<Cliente> cliente = clirepo.findAll();
+			if (cliente.isEmpty())
+			{			System.out.println("La lists esta vacia");
+			}
+				for (Cliente x: cliente) {
+
+					x.getCodigocliente();
+					x.getNif();
+					x.getTelefono();
+				} 
+				modelo.addAttribute("cliente", cliente);
+
+			}
 
 		return "clientes";
 	}

@@ -62,44 +62,30 @@
             </div>
             <div class="col-md-8">
 					<div class="row">
-						<div class="col-auto" id="caja1">
-							<i class="fas fa-filter"></i>
-							Mis presupuestos <i class="fas fa-times"></i>
-						</div>
-						<div class="col-auto">
-						
-						<form class="row g-2" action="/buscarcodigoestado" method="post">
-						<div class="col-auto">
-						
-							<input class="form-control" name="codigoestado"
-								placeholder="Buscar código estado">
-						</div>
-						<div class="col-auto">
-						
-					<button
-						id="botonbuscar"
-						type="submit">
-						<i class="fas fa-search"></i>
-					</button>
+						<form class="row g-2" action="/buscarestado" method="post">
+					<div class="col-auto">
+							 <i class="fas fa-filter"></i>
+							<select class="custom-select" name="filtro" style="width: 120px; padding: 6px; border:0;">
+ 							 <option value="0" selected> Filtrar por</option>
+ 							 <option value="1">Número estado</option>
+  								<option value="2">Nombre estado</option> 
+							</select>
 					</div>
-				</form>
+					
+							<div class="col-auto">
+
+								<input class="form-control" name="buscar"
+									placeholder="Buscar..">
+							</div>
+							<div class="col-auto">
+
+								<button id="botonbuscar" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="col-auto">
-				<form class="row g-2" action="/nombreestado" method="post">
-				<div class="col-auto">
-					<input class="form-control" name="buscarestado"
-						placeholder="Buscar estado">
-				</div>
-				<div class="col-auto">
-					<button
-						id="botonbuscar"
-						type="submit">
-						<i class="fas fa-search"></i>
-					</button>
-				</div>
-				</form>
-				</div>
-			</div>
 			<div class="row" id="rownavbuscar">
                         <nav class="navbar navbar-expand-lg justify-content-between">
                             <div class="navbar-nav">

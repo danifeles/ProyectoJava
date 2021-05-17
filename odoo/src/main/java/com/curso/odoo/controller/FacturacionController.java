@@ -123,11 +123,12 @@ public class FacturacionController {
   	  return "Facturacion";
     }
 	
-	@PostMapping("/facturacionnumero")
-	public String facturacionventas(@Param("buscarnumero") int buscarnumero, Model modelo)
+	@PostMapping("/buscarfactura")
+	public String buscarfactura(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
 		
-		List<Factura> fac1 = facrepo.findByCodigofactura (buscarnumero);
+		if (filtro == 1) {
+		List<Factura> fac1 = facrepo.findByCodigofactura (Integer.parseInt(buscar));
 
 		
 		for (Factura x: fac1) {
@@ -144,28 +145,42 @@ public class FacturacionController {
 		}
 	
 		modelo.addAttribute("factura", fac1);
-  	  return "Facturacion";
-    }
+		} else if (filtro == 2) {
+			List<Factura> fac2 = facrepo.findByClienteNombreclienteContaining(buscar);
 
-		@PostMapping("/facturacioncliente")
-		public String facturacionventas(@Param("buscarcliente") String buscarcliente, Model modelo)
-				{
-		List<Factura> fac2 = facrepo.findByClienteNombreclienteContaining(buscarcliente);
+			for (Factura x: fac2) {
 
-		for (Factura x: fac2) {
+				x.getCodigofactura();
+				x.getFechafactura();
+				x.getFechavencimiento();
+				x.getImpuestos();
+				x.getTotal();
+				x.getCliente().getNombrecliente();
+				x.getActividad().getNombreactividad();
+				x.getEstado().getNombreestado();
+				x.getEstadopago().getNombreestadopago();
+			}
+		
+			modelo.addAttribute("factura", fac2);
+		} else if (filtro == 0) {
+			List<Factura> factura = facrepo.findAll();
+			
+			for (Factura x: factura) {
 
-			x.getCodigofactura();
-			x.getFechafactura();
-			x.getFechavencimiento();
-			x.getImpuestos();
-			x.getTotal();
-			x.getCliente().getNombrecliente();
-			x.getActividad().getNombreactividad();
-			x.getEstado().getNombreestado();
-			x.getEstadopago().getNombreestadopago();
+				x.getCodigofactura();
+				x.getFechafactura();
+				x.getFechavencimiento();
+				x.getImpuestos();
+				x.getTotal();
+				x.getCliente().getNombrecliente();
+				x.getActividad().getNombreactividad();
+				x.getEstado().getNombreestado();
+				x.getEstadopago().getNombreestadopago();
+			}
+		
+			modelo.addAttribute("factura", factura);
 		}
-	
-		modelo.addAttribute("factura", fac2);
+		
   	  return "Facturacion";
     }
 

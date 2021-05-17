@@ -66,23 +66,32 @@
 						id="botoncrear">CREAR</button>
 				</div>
 			</div>
-			<div class="col-md-auto">
-				<form class="form-inline" action="/buscarclientes" method="post">
+			<div class="col-md-8">
 					<div class="row">
-						<div class="col-sm-auto" id="caja1">
-							<i class="fas fa-filter"></i> Mis presupuestos <i
-								class="fas fa-times"></i>
-						</div>
-						<div class="col-sm-8">
-							<input class="form-control" id="buscar" name="buscarcliente"
-								type="search" placeholder="Buscar nombre del cliente">
-						</div>
-						<div class="col-sm-1">
-							<button id="botonbuscar" type="submit">
-								<i class="fas fa-search"></i>
-							</button>
-						</div>
+						<form class="row g-2" action="/buscarclientes" method="post">
+					<div class="col-auto">
+							 <i class="fas fa-filter"></i>
+							<select class="custom-select" name="filtro" style="width: 120px; padding: 6px; border:0;">
+ 							 <option value="0" selected> Filtrar por</option>
+ 							 <option value="1">Número cliente</option>
+  								<option value="2">Nombre Cliente</option> 
+							</select>
 					</div>
+					
+							<div class="col-auto">
+
+								<input class="form-control" name="buscar"
+									placeholder="Buscar..">
+							</div>
+							<div class="col-auto">
+
+								<button id="botonbuscar" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
 					<div class="row" id="rownavbuscar">
 						<nav class="navbar navbar-expand-lg justify-content-between">
 							<div class="navbar-nav">

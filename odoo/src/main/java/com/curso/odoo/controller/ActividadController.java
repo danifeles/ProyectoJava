@@ -81,11 +81,11 @@ public class ActividadController {
 		return "redirect:/actividad"; 
 		
 	}
-	@PostMapping("/buscarcodigoactividad")
-	public String buscarcodigoactividad(@Param("codigoactividad") int codigoactividad, Model modelo)
+	@PostMapping("/buscaractividad")
+	public String buscaractividad(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
-		
-		List<actividad> act1 = actrepo1.findByCodigoactividad (codigoactividad);
+		if(filtro == 1) {
+		List<actividad> act1 = actrepo1.findByCodigoactividad (Integer.parseInt(buscar));
 
 		
 		for (actividad x: act1) {
@@ -94,20 +94,30 @@ public class ActividadController {
 		}
 	
 		modelo.addAttribute("actividad", act1);
-  	  return "actividad";
-    }
+		} else if (filtro == 2) {
+			List<actividad> act1 = actrepo1.findByNombreactividadContaining (buscar);
 
-		@PostMapping("/nombreactividad")
-		public String nombreactividad(@Param("buscarnombre") String buscarnombre, Model modelo)
-				{
-			List<actividad> act1 = actrepo1.findByNombreactividadContaining (buscarnombre);
+			for (actividad x: act1) {
+				x.getCodigoactividad();
+				x.getNombreactividad();
+			}
+		
+			modelo.addAttribute("actividad", act1);
+			
+		} else if(filtro == 0){
+			Iterable<actividad> actividad = actrepo1.findAll();
+			
+			for (actividad x: actividad) {
 
-		for (actividad x: act1) {
-			x.getCodigoactividad();
-			x.getNombreactividad();
+				x.getCodigoactividad();
+				x.getNombreactividad();
+				
+			}
+		
+			modelo.addAttribute("actividad", actividad);
 		}
-	
-		modelo.addAttribute("actividad", act1);
+		
   	  return "actividad";
     }
+
 }

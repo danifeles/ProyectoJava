@@ -64,7 +64,7 @@ public class VentasController {
 	@PostMapping("/formventas")
 	public String formventas(@RequestParam("numero") int numero,
 						  @RequestParam("fecha") String fecha, 
-						  @RequestParam("cliente") int cliente,
+						  @RequestParam("cliente") int cliente, 
 						  @RequestParam("comercial") int comercial, 
 						  @RequestParam("actividad") int actividad,
 						  @RequestParam("total") int total,
@@ -120,12 +120,14 @@ public class VentasController {
   	  return "ventas";
     }
 	
-	@PostMapping("/ventasnumero")
-	public String buscarventas(@Param("buscarnumero") int buscarnumero, Model modelo)
+	@PostMapping("/buscarventas")  
+	public String buscarventas1(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
+		System.out.println(filtro);
 		
-		List<Presupuesto> presu1 = prerepo.findByCodigopresupuesto (buscarnumero);
-
+		if(filtro == 1) {
+		List<Presupuesto> presu1 = prerepo.findByCodigopresupuesto (Integer.parseInt(buscar));
+		
 		
 		for (Presupuesto x: presu1) {
 
@@ -139,30 +141,44 @@ public class VentasController {
 
 		} 
 		modelo.addAttribute("presupuesto", presu1);
+		} else if(filtro == 2) {
+			List<Presupuesto> presu2 = prerepo.findByClienteNombreclienteContaining(buscar);
+
+			for (Presupuesto x: presu2) {
+
+				x.getCodigopresupuesto();
+				x.getFechapresupuesto();
+				x.getCliente().getNombrecliente();
+				x.getComercial().getNombrecomercial();
+				x.getActividad().getNombreactividad();
+				x.getTotal();
+				x.getEstado().getNombreestado();
+			} 
+
+				modelo.addAttribute("presupuesto", presu2);
+		} else if(filtro == 0){
+			List<Presupuesto> presu = prerepo.findAll(Sort.by("Fechapresupuesto").descending());
+			if (presu.isEmpty())
+			{			System.out.println("La lists esta vacia");
+			}
+			for (Presupuesto x: presu) {
+
+				x.getCodigopresupuesto();
+				x.getFechapresupuesto();
+				x.getCliente().getNombrecliente();
+				x.getComercial().getNombrecomercial();
+				x.getActividad().getNombreactividad();
+				x.getTotal();
+				x.getEstado().getNombreestado();
+			}
+		
+			
+			modelo.addAttribute("presupuesto", presu);
+		}
 
 		return "ventas";
 	}
 
-		@PostMapping("/ventascliente")
-		public String buscarventas(@Param("buscarcliente") String buscarcliente, Model modelo)
-				{
-		List<Presupuesto> presu2 = prerepo.findByClienteNombreclienteContaining(buscarcliente);
-
-		for (Presupuesto x: presu2) {
-
-			x.getCodigopresupuesto();
-			x.getFechapresupuesto();
-			x.getCliente().getNombrecliente();
-			x.getComercial().getNombrecomercial();
-			x.getActividad().getNombreactividad();
-			x.getTotal();
-			x.getEstado().getNombreestado();
-		} 
-
-			modelo.addAttribute("presupuesto", presu2);
-					
-			return "ventas";
-		}
 	
 		@GetMapping("/borrarpresupuesto/{codigo}")
 		public String borrar(@PathVariable("codigo") String cod)
