@@ -79,12 +79,11 @@ public class EstadoPagoController {
 		return "redirect:/estadopago"; 
 		
 	}
-	@PostMapping("/buscarcodigoestadopago")
-	public String buscarcodigoestadopago(@Param("codigoestadopago") int codigoestadopago, Model modelo)
+	@PostMapping("/buscarestadopago")
+	public String buscarcodigoestadopago(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
-		
-		List<estadopago> est2 = estrepo2.findByCodigoestadopago (codigoestadopago);
-
+		if (filtro == 1) {
+		List<estadopago> est2 = estrepo2.findByCodigoestadopago (Integer.parseInt(buscar));
 		
 		for (estadopago x: est2) {
 			x.getCodigoestadopago();
@@ -92,6 +91,16 @@ public class EstadoPagoController {
 		}
 	
 		modelo.addAttribute("estadopago", est2);
+		} else if (filtro == 2) {
+			List<estadopago> est2 = estrepo2.findByNombreestadopagoContaining (buscar);
+
+			for (estadopago x: est2) {
+				x.getCodigoestadopago();
+				x.getNombreestadopago();
+			}
+		
+			modelo.addAttribute("estadopago", est2);
+		}
   	  return "estadopago";
     }
 
