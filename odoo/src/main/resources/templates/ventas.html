@@ -86,7 +86,7 @@
 				<form class="row g-2" action="/buscarventas" method="post">
 					<div class="col-auto">
 							 <i class="fas fa-filter"></i>
-							<select class="custom-select" name="filtro" style="width: 120px; padding: 6px; border:0;">
+							<select class="custom-select" onchange="cambiartipo()" id="lista" name="filtro" style="width: 120px; padding: 6px; border:0;">
  							 <option value="0" selected> Filtrar por</option>
  							 <option value="1">Número presupuesto</option>
   								<option value="2">Nombre Cliente</option> 
@@ -95,7 +95,7 @@
 					
 							<div class="col-auto">
 
-								<input class="form-control" name="buscar"
+								<input class="form-control" name="buscar" id="cambiartipo1"
 									placeholder="Buscar..">
 							</div>
 							<div class="col-auto">
@@ -172,5 +172,19 @@
 		</div>
 	</div>
 	<script th:src="@{/javascript/ventas.js}"></script>
+	<script>
+	
+	function cambiartipo() {
+	var lista1 = document.getElementById("lista");
+	
+	var cambiar = document.getElementById("cambiartipo1");
+	if(lista1.value == 2) {
+	cambiar.type = "text";
+	} else 
+	{
+	cambiar.type = "number";
+	}
+	}
+	</script>
 </body>
 </html>
