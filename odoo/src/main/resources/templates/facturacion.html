@@ -75,7 +75,7 @@
 						<form class="row g-2" action="/buscarfactura" method="post">
 					<div class="col-auto">
 							 <i class="fas fa-filter"></i>
-							<select class="custom-select" name="filtro" style="width: 120px; padding: 6px; border:0;">
+							<select class="custom-select" name="filtro" onchange="cambiartipo()" id="lista" style="width: 120px; padding: 6px; border:0;">
  							 <option value="0" selected> Filtrar por</option>
  							 <option value="1">Número facturación</option>
   								<option value="2">Nombre Cliente</option> 
@@ -84,7 +84,7 @@
 					
 							<div class="col-auto">
 
-								<input class="form-control" name="buscar"
+								<input class="form-control" name="buscar" id="cambiartipo1"
 									placeholder="Buscar..">
 							</div>
 							<div class="col-auto">

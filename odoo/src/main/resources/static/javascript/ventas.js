@@ -89,5 +89,16 @@ function borrarcliente(clicked) {
 			
 }
 
+function cambiartipo() {
+	var lista1 = document.getElementById("lista");
+	
+	var cambiar = document.getElementById("cambiartipo1");
+	if(lista1.value == 2) {
+	cambiar.type = "text";
+	} else 
+	{
+	cambiar.type = "number";
+	}
+	}
 
 

@@ -82,33 +82,39 @@ public class EstadoController {
 		return "redirect:/estado"; 
 		
 	}
-	@PostMapping("/buscarcodigoestado")
-	public String buscarcodigoestado(@Param("codigoestado") int codigoestado, Model modelo)
+	@PostMapping("/buscarestado")
+	public String buscarestado(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
+		if (filtro == 1) {
+		List<estado> est = estrepo1.findByCodigoestado (Integer.parseInt(buscar));
 		
-		List<estado> est1 = estrepo1.findByCodigoestado (codigoestado);
-
-		
-		for (estado x: est1) {
+		for (estado x: est) {
 			x.getCodigoestado();
 			x.getNombreestado();
 		}
 	
-		modelo.addAttribute("estado", est1);
-  	  return "estado";
-    }
+		modelo.addAttribute("estado", est);
+		} else if (filtro == 2) {
+			List<estado> est = estrepo1.findByNombreestadoContaining (buscar);
 
-		@PostMapping("/nombreestado")
-		public String nombreestado(@Param("buscarestado") String buscarestado, Model modelo)
-				{
-			List<estado> est1 = estrepo1.findByNombreestadoContaining (buscarestado);
+			for (estado x: est) {
+				x.getCodigoestado();
+				x.getNombreestado();
+			}
+		
+			modelo.addAttribute("estado", est);
+		} else if(filtro == 0){
+			List<estado> estado = estrepo1.findAll();
+			
+			for (estado x: estado) {
 
-		for (estado x: est1) {
-			x.getCodigoestado();
-			x.getNombreestado();
+				x.getCodigoestado();
+				x.getNombreestado();
+			}
+		
+			modelo.addAttribute("estado", estado);
 		}
-	
-		modelo.addAttribute("estado", est1);
   	  return "estado";
     }
+
 }

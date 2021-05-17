@@ -80,11 +80,11 @@ public class ComercialController {
 		return "redirect:/comercial"; 
 		
 	}
-	@PostMapping("/buscarcodigocomercial")
-	public String buscarcodigocomercial(@Param("codigocomercial") int codigocomercial, Model modelo)
+	@PostMapping("/buscarcomercial") 
+	public String buscarcomercial(@Param("buscar") String buscar,@Param("filtro") Integer filtro, Model modelo)
 	{
-		
-		List<comercial> com1 = comrepo1.findByCodigocomercial (codigocomercial);
+		if (filtro == 1) {
+		List<comercial> com1 = comrepo1.findByCodigocomercial (Integer.parseInt(buscar));
 
 		
 		for (comercial x: com1) {
@@ -93,20 +93,31 @@ public class ComercialController {
 		}
 	
 		modelo.addAttribute("comercial", com1);
-  	  return "comercial";
-    }
+		} else if (filtro == 2) {
+			List<comercial> com1 = comrepo1.findByNombrecomercialContaining (buscar);
 
-		@PostMapping("/nombrecomercial")
-		public String nombrecomercial(@Param("buscarcomercial") String buscarcomercial, Model modelo)
-				{
-			List<comercial> com1 = comrepo1.findByNombrecomercialContaining (buscarcomercial);
+			
+			for (comercial x: com1) {
+				x.getCodigocomercial();
+				x.getNombrecomercial();
+			}
+		
+			modelo.addAttribute("comercial", com1);
+		} else if(filtro == 0){
+			
+			List<comercial> comercial = comrepo1.findAll();
+			
+			for (comercial x: comercial) {
 
-		for (comercial x: com1) {
-			x.getCodigocomercial();
-			x.getNombrecomercial();
+				x.getCodigocomercial();
+				x.getNombrecomercial();
+				
+			}
+		
+			modelo.addAttribute("comercial", comercial);
 		}
-	
-		modelo.addAttribute("comercial", com1);
+		
   	  return "comercial";
     }
+
 }

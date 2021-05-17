@@ -70,7 +70,7 @@
 				<div class="row">
 					<form class="row g-2" action="/buscarclientes" method="post">
 						<div class="col-auto">
-							<i class="fas fa-filter"></i> <select class="custom-select"
+							<i class="fas fa-filter"></i> <select class="custom-select" onchange="cambiartipo()" id="lista"
 								name="filtro" style="width: 120px; padding: 6px; border: 0;">
 								<option value="0" selected>Filtrar por</option>
 								<option value="1">Número cliente</option>
@@ -80,7 +80,7 @@
 
 						<div class="col-auto">
 
-							<input class="form-control" name="buscar" placeholder="Buscar..">
+							<input class="form-control" name="buscar" id="cambiartipo1" placeholder="Buscar..">
 						</div>
 						<div class="col-auto">
 

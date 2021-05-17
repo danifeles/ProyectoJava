@@ -100,21 +100,17 @@ public class EstadoPagoController {
 			}
 		
 			modelo.addAttribute("estadopago", est2);
-		}
-  	  return "estadopago";
-    }
+		} else if(filtro == 0){
+			List<estadopago> estadopago = estrepo2.findAll();
+			
+			for (estadopago x: estadopago) {
 
-		@PostMapping("/nombreestadopago")
-		public String nombreestadopago(@Param("buscarestadopago") String buscarestadopago, Model modelo)
-				{
-			List<estadopago> est2 = estrepo2.findByNombreestadopagoContaining (buscarestadopago);
-
-		for (estadopago x: est2) {
-			x.getCodigoestadopago();
-			x.getNombreestadopago();
+				x.getCodigoestadopago();
+				x.getNombreestadopago();
+			}
+		
+			modelo.addAttribute("estadopago", estadopago);
 		}
-	
-		modelo.addAttribute("estadopago", est2);
   	  return "estadopago";
     }
 }
