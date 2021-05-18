@@ -94,6 +94,7 @@
 					</div>
 					<h3 class="title" th:text="${p1.Nombrecliente}"></h3>
 					<span class="post" th:text="${p1.Codigocliente}"></span>
+					<button th:id="${p1.Codigocliente}" type="button" onclick="editarclientes(this.id)"><i class="far fa-edit"></i> </button>
 					<button th:id="${p1.Codigocliente}" type="button"
 						name="botonborrarcliente" data-toggle="modal"
 						data-target="#myModal"
@@ -144,9 +145,7 @@
                     </div>
                 </div>
             </div>
-	</div>
-	</div>
-	
+	</div>	
 	<script th:src="@{/javascript/ventas.js}"></script>
 </body>
 </html>

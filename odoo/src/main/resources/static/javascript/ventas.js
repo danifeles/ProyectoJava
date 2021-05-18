@@ -207,3 +207,8 @@ function editarfacturacion() {
 			}
 	}
 }
+
+function editarclientes(clicked) {
+		window.location.href = "http://localhost:8080/FormularioEditar/"+clicked
+
+}

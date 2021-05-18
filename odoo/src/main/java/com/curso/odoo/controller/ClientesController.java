@@ -204,4 +204,51 @@ public class ClientesController {
 
 		return "clientes";
 	}
+	
+	@GetMapping("/FormularioEditar/{codigo}")
+	public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+	{	
+		
+		List<Cliente> cli = clirepo.findByCodigocliente(Integer.parseInt(cod));
+		for (Cliente x: cli) {
+			x.getCodigocliente();
+			x.getNombrecliente();
+			x.getApellidoscliente();
+			x.getCalle();
+			x.getCiudad();
+			x.getCategorias();
+			x.getCodigopostal();
+			x.getEmail();
+			x.getMovil();
+			x.getNif();
+			x.getPais();
+			x.getPaginaweb();
+			x.getProvincia();
+			x.getTelefono();
+			x.getTipocliente();
+			x.getPhoto();
+			
+		}
+		
+		modelo.addAttribute("editarcliente", cli);
+		
+		List<Cliente> cli1 = clirepo.findAll();
+		
+		for (Cliente x: cli1) {
+			
+			x.getCategorias();
+			x.getPais().getNombrepais();
+			x.getProvincia().getNombreprovincia();
+			
+		}
+	
+		modelo.addAttribute("cliente", cli1);
+
+		return "FormularioEditar";
+	}
+	
+	@GetMapping ("FormularioEditar") 
+	public String FormularioEditar() {
+		return "FormularioEditar";
+	}
 }
