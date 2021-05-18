@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.curso.odoo.model.Cliente;
 import com.curso.odoo.model.Factura;
 import com.curso.odoo.model.Presupuesto;
+import com.curso.odoo.model.actividad;
 import com.curso.odoo.model.comercial;
 import com.curso.odoo.repositorio.ComercialRepositorio;
 import com.curso.odoo.repositorio.FacturaRepositorio;
@@ -140,4 +141,34 @@ public class ComercialController {
   	  return "comercial";
     }
 
+	@GetMapping("/FormComercialEditar/{codigo}")
+	public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+	{	
+		
+		List<com.curso.odoo.model.comercial> com = comrepo1.findByCodigocomercial(Integer.parseInt(cod));
+		for (comercial x: com) {
+
+			x.getCodigocomercial();
+			x.getNombrecomercial();
+		}
+		
+		modelo.addAttribute("editarcomercial", com);
+		
+		List<com.curso.odoo.model.comercial> com1 = comrepo1.findAll();
+		
+		for (comercial x: com1) {
+
+			x.getCodigocomercial();
+			x.getNombrecomercial();
+		}
+	
+		modelo.addAttribute("comercial", com1);
+
+		return "FormComercialEditar";
+	}
+	
+	@GetMapping ("FormComercialEditar") 
+	public String FormComercialEditar() {
+		return "FormComercialEditar";
+	}
 }
