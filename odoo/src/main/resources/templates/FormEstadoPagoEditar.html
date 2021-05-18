@@ -6,8 +6,128 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" th:href="@{css/formclientes.css}" type="text/css">
+   
 <title>Formulario Estado de pago</title>
+<style>
+.form-control {
+	border: none;
+	border-bottom: 1px solid #000000;
+	border-radius: 0;
+}
+
+.form-group {
+	font-family: 'Segoe UI';
+	font-weight: bold;
+}
+
+.form-group input.line {
+	border-bottom: 2px solid grey;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	background: transparent;
+	border-radius: 0;
+}
+
+#nombre {
+	border-bottom: 2px solid black;
+	font-size: 30px;
+	width: 500px;
+	border-radius: 0;
+}
+
+#file-upload {
+	float: right;
+	width: 100px;
+	height: 100px;
+	border: 1px solid lightgray;
+	color: grey;
+	font-size: 80px;
+}
+
+#categorias {
+	border-bottom: 2px solid grey;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	background: transparent;
+	border-radius: 0;
+	color: rgba(34, 34, 33, 0.699);
+}
+
+#div1 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#textoClientes {
+	color: cadetblue;
+	font-size: 50px;
+}
+
+#textonew {
+	color: grey;
+	font-size: 20px;
+}
+
+#botonguardar {
+	color: white;
+	background-color: cadetblue;
+	border: none;
+}
+
+#botondescartar {
+	color: cadetblue;
+	background-color: white;
+	border: none;
+}
+
+#contenedor {
+	background-color: rgba(241, 239, 235, 0.918);
+}
+
+#colorgris {
+	color: gray;
+}
+
+#colorindigo {
+	color: indigo;
+}
+
+#divform {
+	padding: 30px;
+}
+
+#divnombre {
+	padding: 30px;
+}
+
+#divapellidos {
+	padding: 30px;
+	display: none;
+}
+
+#botonanadir {
+	color: cadetblue;
+	border: 0;
+	background-color: white;
+}
+
+#colfinal {
+	padding-top: 30px;
+}
+
+#nombreform {
+	color: cadetblue;
+	font-size: 50px;
+}
+
+#botonvolver {
+	color: rgb(9, 33, 250);
+	border: 0;
+	background-color: white;
+}
+</style>
+
 </head>
 <body>
     <div class="container p-4 my-4" id="div1">
@@ -33,7 +153,7 @@
                     <div class="col-12" style="padding: 30px">
                         <input type="submit" value="Añadir" id="botonanadir"
                             onclick="añadir()">
-                        <input type="button" id="botonvolver" onclick=" window.location.href='estadopago'" value="Volver">
+                        <input type="button" id="botonvolver" onclick=" window.location.href='http://localhost:8080/estadopago'" value="Volver">
                     </div>
                 </div>
                 </form>
