@@ -122,6 +122,34 @@ function aparecerbasura(x) {
 		basura1.style.visibility = "visible";
 	}
 	} 
+	
+	var lapiz1 = document.getElementById("lapiz");
+	debugger;
+	cont = 0;
+	for (i=0; i<lista.length; i++) 
+	{
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		++ cont;
+	} 
+	}
+	if(cont == 1) {
+		lapiz1.style.visibility = "visible";
+	}
+	else {
+		lapiz1.style.visibility = "hidden";
+		}
 }
 
+
+
+function editar() {
+	var lista = document.getElementsByTagName("input")
+	for (i=0; i<lista.length; i++) 
+	{
+		console.log(lista[i].id);
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		window.location.href = "http://localhost:8080/FormVentasEditar/"+lista[i].id
+			}
+	}
+}
 

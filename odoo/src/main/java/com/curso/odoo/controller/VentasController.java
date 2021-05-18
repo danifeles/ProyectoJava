@@ -76,7 +76,7 @@ public class VentasController {
 						  @RequestParam("total") int total,
 						  @RequestParam("estado") int estado) {
 		
-		Presupuesto x = new Presupuesto();
+		Presupuesto x = new Presupuesto();  
 		
 		//Buscar el codigo del cliente en la BBDD y guardarlo en la factura
 		Optional<Cliente> c1= clirepo.findById(cliente);
@@ -215,4 +215,42 @@ int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toSt
 			return "redirect:/ventas"; 
 			
 		}
+		
+		@GetMapping("/FormVentasEditar/{codigo}")
+		public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+		{	
+			
+			List<Presupuesto> presu1 = prerepo.findByCodigopresupuesto(Integer.parseInt(cod));
+			for (Presupuesto x: presu1) {
+
+				x.getCodigopresupuesto();
+				x.getFechapresupuesto();
+				x.getCliente().getNombrecliente();
+				x.getComercial().getNombrecomercial();
+				x.getActividad().getNombreactividad();
+				x.getTotal();
+				x.getEstado().getNombreestado();
+			}
+			
+			modelo.addAttribute("editarventas", presu1);
+			
+			List<Presupuesto> presu = prerepo.findAll();
+			
+			for (Presupuesto x: presu) {
+
+				x.getComercial().getNombrecomercial();
+				x.getActividad().getNombreactividad();
+				x.getEstado().getNombreestado();
+			}
+		
+			modelo.addAttribute("presupuesto", presu);
+
+			return "FormVentasEditar";
+		}
+		
+		@GetMapping ("FormVentasEditar") 
+		public String FormVentasEditar() {
+			return "FormVentasEditar";
+		}
+		
 }
