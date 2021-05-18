@@ -212,4 +212,49 @@ public class FacturacionController {
     {
 		return "NewFile";
     }
+	
+	@GetMapping("/FormFacturacionEditar/{codigo}")
+	public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+	{	
+		
+		List<Factura> fac = facrepo.findByCodigofactura(Integer.parseInt(cod));
+		for (Factura x: fac) {
+
+			x.getCodigofactura();
+			x.getFechafactura();
+			x.getFechavencimiento();
+			x.getImpuestos();
+			x.getTotal();
+			x.getCliente().getNombrecliente();
+			x.getActividad().getNombreactividad();
+			x.getEstado().getNombreestado();
+			x.getEstadopago().getNombreestadopago();
+		}
+		
+		modelo.addAttribute("editarfacturacion", fac);
+		
+		List<Factura> fac1 = facrepo.findAll();
+		
+		for (Factura x: fac1) {
+
+			x.getCodigofactura();
+			x.getFechafactura();
+			x.getFechavencimiento();
+			x.getImpuestos();
+			x.getTotal();
+			x.getCliente().getNombrecliente();
+			x.getActividad().getNombreactividad();
+			x.getEstado().getNombreestado();
+			x.getEstadopago().getNombreestadopago();
+		}
+	
+		modelo.addAttribute("factura", fac1);
+
+		return "FormFacturacionEditar";
+	}
+	
+	@GetMapping ("FormFacturacionEditar") 
+	public String FormFacturacionEditar() {
+		return "FormFacturacionEditar";
+	}
 }
