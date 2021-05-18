@@ -136,5 +136,36 @@ public class ActividadController {
 		
   	  return "actividad";
     }
+	
+	@GetMapping("/FormActividadEditar/{codigo}")
+	public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+	{	
+		
+		List<com.curso.odoo.model.actividad> act = actrepo1.findByCodigoactividad(Integer.parseInt(cod));
+		for (actividad x: act) {
+
+			x.getCodigoactividad();
+			x.getNombreactividad();
+		}
+		
+		modelo.addAttribute("editaractividad", act);
+		
+		List<com.curso.odoo.model.actividad> act1 = actrepo1.findAll();
+		
+		for (actividad x: act1) {
+
+			x.getCodigoactividad();
+			x.getNombreactividad();
+		}
+	
+		modelo.addAttribute("actividad", act1);
+
+		return "FormActividadEditar";
+	}
+	
+	@GetMapping ("FormActividadEditar") 
+	public String FormActividadEditar() {
+		return "FormActividadEditar";
+	}
 
 }

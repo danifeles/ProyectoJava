@@ -142,7 +142,7 @@ function aparecerbasura(x) {
 
 
 
-function editar() {
+function editarventas() {
 	var lista = document.getElementsByTagName("input")
 	for (i=0; i<lista.length; i++) 
 	{
@@ -153,3 +153,57 @@ function editar() {
 	}
 }
 
+function editaractividad() {
+	var lista = document.getElementsByTagName("input")
+	for (i=0; i<lista.length; i++) 
+	{
+		console.log(lista[i].id);
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		window.location.href = "http://localhost:8080/FormActividadEditar/"+lista[i].id
+			}
+	}
+}
+
+function editarcomercial() {
+	var lista = document.getElementsByTagName("input")
+	for (i=0; i<lista.length; i++) 
+	{
+		console.log(lista[i].id);
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		window.location.href = "http://localhost:8080/FormComercialEditar/"+lista[i].id
+			}
+	}
+}
+
+function editarestado() {
+	var lista = document.getElementsByTagName("input")
+	for (i=0; i<lista.length; i++) 
+	{
+		console.log(lista[i].id);
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		window.location.href = "http://localhost:8080/FormEstadoEditar/"+lista[i].id
+			}
+	}
+}
+
+function editarestadopago() {
+	var lista = document.getElementsByTagName("input")
+	for (i=0; i<lista.length; i++) 
+	{
+		console.log(lista[i].id);
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		window.location.href = "http://localhost:8080/FormEstadoPagoEditar/"+lista[i].id
+			}
+	}
+}
+
+function editarfacturacion() {
+	var lista = document.getElementsByTagName("input")
+	for (i=0; i<lista.length; i++) 
+	{
+		console.log(lista[i].id);
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		window.location.href = "http://localhost:8080/FormFacturacionEditar/"+lista[i].id
+			}
+	}
+}

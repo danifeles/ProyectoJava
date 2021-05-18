@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://kit.fontawesome.com/e22ea825df.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{css/formclientes.css}" type="text/css">
+<title>Formulario Facturación</title>
+</head>
+<body>
+    <form action="/formfacturacion" method="post">
+    <div class="container p-4 my-4" id="div1">
+        <p id="nombreform">Facturación </p>
+        <div class="container p-4 my-4" id="contenedor">
+            <div class="row bg-white border" id="divform">
+                    <div class="col-sm-10">
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Número </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="numero" value=0 type="number" placeholder="Número...">
+                            </div>
+                            <label for="NIF" class="col-sm-4 col-form-label"> Cliente </label>
+                            <div class="col-sm-8">
+							<select class="custom-select" name="cliente">
+                                    <option selected disabled>Selecciona un cliente</option>
+                                    <option th:each="p1:${factura}" th:value="${p1.Cliente.Codigocliente}" th:text="${p1.Cliente.Nombrecliente}"></option>
+                                  </select>                            
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Fecha factura </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="factura" type="date" placeholder="Fecha factura...  ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Fecha vencimiento </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="fechavencimiento" type="date" placeholder=" Fecha vencimiento...  ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Actividad siguiente </label>
+                            <div class="col-sm-8">
+								<select class="custom-select" name="actividad">
+                                    <option selected disabled>Selecciona una actividad</option>
+                                    <option th:each="p1:${factura}" th:value="${p1.Actividad.Codigoactividad}" th:text="${p1.Actividad.Nombreactividad}"></option>
+                                  </select>                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Impuestos excluidos </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="impuestos" type="number" placeholder="Impuestos excluidos... ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Total </label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="total" type="number" placeholder="Total... ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Estado </label>
+                            <div class="col-sm-8">
+                                <select class="custom-select" name="estado">
+                                    <option selected disabled>Selecciona un estado</option>
+                                    <option th:each="p1:${factura}" th:value="${p1.estado.Codigoestado}" th:text="${p1.Estado.Nombreestado}"></option>
+                                  </select> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="NIF" class="col-sm-4 col-form-label"> Estado de pago </label>
+                            <div class="col-sm-8">
+                                <select class="custom-select" name="estadopago">
+                                    <option selected disabled>Selecciona un estado de pago</option>
+                                    <option th:each="p1:${factura}" th:value="${p1.estadopago.Codigoestadopago}" th:text="${p1.Estadopago.Nombreestadopago}"></option>
+                                  </select> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="padding: 30px">
+                        <input type="submit" value="Añadir" id="botonanadir"
+                            onclick="añadir()">
+                            <input type="button" id="botonvolver"  onclick=" window.location.href='facturacion'" value="Volver">
+                    </div>
+                </div>
+            </div>
+        </div>
+                    </form>
+        
+  <script th:src="@{/javascript/formulario.js}"></script>
+</body>
+</html>
