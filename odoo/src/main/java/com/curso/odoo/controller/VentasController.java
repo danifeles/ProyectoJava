@@ -1,9 +1,14 @@
 package com.curso.odoo.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -24,6 +29,7 @@ import com.curso.odoo.repositorio.ComercialRepositorio;
 import com.curso.odoo.repositorio.EstadoPagoRepositorio;
 import com.curso.odoo.repositorio.EstadoRepositorio;
 import com.curso.odoo.repositorio.PresupuestoRepositorio;
+import com.curso.odoo.service.api.PresupuestoServiceAPI;
 
 @Controller
 public class VentasController {
@@ -95,9 +101,23 @@ public class VentasController {
 		return "FormVentas";
 	}
 	
+	@Autowired
+	private PresupuestoServiceAPI preServiceAPI;
+	
 	@GetMapping("/ventas")
-    public String ventas(Model modelo)
+    public String ventas(@RequestParam Map<String, Object> params, Model modelo)
     {
+		
+int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 10);
+		
+		Page<Presupuesto> pagePersona = preServiceAPI.getAll(pageRequest);
+		int totalPage = pagePersona.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			modelo.addAttribute("pages", pages);
+		}
 		System.out.println("Hola");
 
 		List<Presupuesto> presu = prerepo.findAll(Sort.by("Fechapresupuesto").descending());
@@ -116,7 +136,11 @@ public class VentasController {
 		}
 	
 		
-		modelo.addAttribute("presupuesto", presu);
+		modelo.addAttribute("presupuesto", pagePersona.getContent());
+		modelo.addAttribute("current", page + 1);
+		modelo.addAttribute("next", page + 2);
+		modelo.addAttribute("prev", page);
+		modelo.addAttribute("last", totalPage);
   	  return "ventas";
     }
 	

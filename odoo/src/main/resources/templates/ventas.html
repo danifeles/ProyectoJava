@@ -129,6 +129,24 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="panel-footer">
+                    <div class="row">
+                    <div class="col col-sm-6 col-xs-6"></div>
+                        <div class="col-sm-6 col-xs-6">
+                            <ul class="pagination hidden-xs pull-right">
+                                <li class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
+								<a class="page-link" th:href="@{|/ventas?page=${prev}|}">Anterior</a>
+							</li>
+							<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
+								<a class="page-link" th:href="@{|/ventas?page=${page}|}" th:text="${page}"></a>
+							</li>
+							<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
+								<a class="page-link" th:href="@{|/ventas?page=${next}|}">Siguiente</a>
+							</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
