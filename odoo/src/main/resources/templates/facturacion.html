@@ -16,6 +16,7 @@
 <title>Facturación</title>
 </head>
 <body>
+<body>
     <nav class="navbar navbar-expand-lg" id="nav1">
         <a class="navbar-brand" href="principal">
             <i class="fas fa-bars" id="botonvolver"></i>
@@ -56,77 +57,46 @@
             </a>
             <a class="navbar-brand" href="#">
                 <i class="fas fa-user-circle"></i>
-                <span id="textouser"> Apasoft </span>
             </a>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row justify-content-between">
-            <div class="col-md-auto">
-                <span id="Facturas"> Facturas </span>
-                <div id="boton">
-                    <button type="button" id="botoncrear" onclick="window.location.href='formfacturacion'">CREAR</button>
-
-					<button type="button" id="botonborrar" onclick="borrarfacturacion()">BORRAR</button>
-                </div> 
-            </div>
-           <div class="col-md-8">
-					<div class="row">
-						<form class="row g-2" action="/buscarfactura" method="post">
-					<div class="col-auto">
-							 <i class="fas fa-filter"></i>
-							<select class="custom-select" name="filtro" onchange="cambiartipo()" id="lista" style="width: 120px; padding: 6px; border:0;">
+    <div class="container-fluid" style="margin: 20px; width: 1650px ; align-self: center;">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title">Facturación</h4>
+                        </div>
+                 </div>
+                    <div class="row">
+                    	<div class="col-sm-3 col-xs-12">
+                                <button class="btn btn-default" title="Reload" type="button" onclick="window.location.href='formfacturacion'" > CREAR </button>
+                   
+                                <button class="btn btn-default" title="Reload" style="visibility: hidden;" id="basura" type="button" onclick="borrarfacturacion()"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                        <div class="col-sm-9 col-xs-12 text-right">
+                        <form action="/buscarfactura" method="post">
+                            <div class="btn_group">
+                            <i class="fas fa-filter" id="iconofiltro"></i>
+							<select class="custom-select" name="filtro" onchange="cambiartipo()" id="lista">
  							 <option value="0" selected> Filtrar por</option>
  							 <option value="1">Número facturación</option>
   								<option value="2">Nombre Cliente</option> 
 							</select>
-					</div>
-					
-							<div class="col-auto">
-
-								<input class="form-control" name="buscar" id="cambiartipo1"
-									placeholder="Buscar..">
-							</div>
-							<div class="col-auto">
-
-								<button id="botonbuscar" type="submit">
-									<i class="fas fa-search"></i>
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-                    <div class="row" id="row2">
-                        <nav class="navbar navbar-expand-lg justify-content-between">
-                            <div class="navbar-nav">
-                                <a class="navbar-brand" id="navbar1" href="#">
-                                    <i class="fas fa-filter"></i><span id="navbar2"> Filtros </span>
-                                </a>
-                                <a class="navbar-brand" id="navbar1" href="#">
-                                    <i class="fas fa-bars"></i><span id="navbar-agruparpor"> Agrupar por </span>
-                                </a>
-                                <a class="navbar-brand" id="navbar1" href="#">
-                                    <i class="fas fa-star"></i><span id="navbar2"> Favoritos </span>
-                                </a>
+                                <input type="text" class="form-control" placeholder="Buscar" name="buscar" id="cambiartipo1">
+                                <button class="btn btn-default" title="Reload" type="submit"><i class="fas fa-search"></i></button>
                             </div>
-                            <div class="navbar-nav">
-                                <a class="navbar-brand" id="navbar1" href="#">
-                                    <i class="fas fa-sliders-h"></i>
-                                </a>
-                                <a class="navbar-brand" id="navbar1" href="#">
-                                    <i class="fas fa-grip-horizontal"></i>
-                                </a>
-                            </div>
-                        </nav>
+                           </form>
+                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div id="divtabla">
-        <table class="table">
-            <thead>
-              <tr id="titulotabla">
-                <th scope="col"><input class="form-check-input" type="checkbox" id="primeracheckbox" onclick="checkAll(this)"></th>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr id="titulotabla">
+                <th scope="col"><input class="form-check-input" type="checkbox" id="primeracheckbox" onclick="checkAll(this)" onchange="aparecerbasura(this)"></th>
                 <th scope="col">Número</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Fecha factura</th>
@@ -137,10 +107,10 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Estado de Pago</th>
               </tr>
-            </thead>
-            <tbody>
-            <tr th:each="p1:${factura}" >
-                        <th scope="row"><input class="form-check-input" type="checkbox" th:id="${p1.Codigofactura}"></th>
+                        </thead>
+                        <tbody>
+                            <tr th:each="p1:${factura}" >
+                        <th scope="row" style="border-bottom: 0;"><input class="form-check-input" type="checkbox" onchange="aparecerbasura(this)" th:id="${p1.Codigofactura}"></th>
 						<td th:text="'REF'+${p1.Codigofactura}"></td>
 						<td th:text="${p1.Cliente.Nombrecliente}"></td>
 						<td th:text="${p1.Fechafactura}"></td>
@@ -154,10 +124,13 @@
 						<td th:text="${p1.Estado.Nombreestado}"></td>
 						<td th:text="${p1.Estadopago.Nombreestadopago}"></td>
 					</tr>
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-    <script th:src="@{/javascript/ventas.js}"></script>
+</div>
+ <script th:src="@{/javascript/ventas.js}"></script>
 </body>
 </html>

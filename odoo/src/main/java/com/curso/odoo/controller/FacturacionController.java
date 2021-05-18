@@ -194,4 +194,10 @@ public class FacturacionController {
 		
 		return "redirect:/facturacion"; 
 	}
+	
+	@GetMapping("/nuevo")
+    public String nuevo()
+    {
+		return "NewFile";
+    }
 }

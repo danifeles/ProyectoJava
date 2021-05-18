@@ -135,8 +135,7 @@ body{
     margin: 0 0 7px;
 }
 #container{
-	padding:150px;
-	
+	padding-top: 200px;
 }
 .serviceBox.red .service-icon{ background: linear-gradient(to right, #FF8D00, #FF2566); }
 .serviceBox.red .service-icon:after{ background: linear-gradient(to right, #CD2B3F, #FE6626); }

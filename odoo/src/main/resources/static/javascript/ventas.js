@@ -101,4 +101,27 @@ function cambiartipo() {
 	}
 	}
 
+function aparecerbasura(x) {
+	debugger;
+	var basura1 = document.getElementById("basura");
+	var lista = document.getElementsByTagName("input");
+	var cont = 0;
+	if(x.checked == true){
+	basura1.style.visibility = "visible";
+	} else if(x.checked == false){
+	for (i=0; i<lista.length; i++) 
+	{
+	if(lista[i].type == 'checkbox' && lista[i].checked == true){
+		cont ++;
+	} 
+	}
+	if(cont == 0) {
+		basura1.style.visibility = "hidden";
+	}
+	else {
+		basura1.style.visibility = "visible";
+	}
+	} 
+}
+
 
