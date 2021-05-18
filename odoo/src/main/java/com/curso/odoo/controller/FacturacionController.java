@@ -1,9 +1,14 @@
 package com.curso.odoo.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.curso.odoo.model.Cliente;
 import com.curso.odoo.model.Factura;
+import com.curso.odoo.model.Presupuesto;
 import com.curso.odoo.model.actividad;
 import com.curso.odoo.model.estado;
 import com.curso.odoo.model.estadopago;
@@ -23,6 +29,7 @@ import com.curso.odoo.repositorio.ClienteRepositorio;
 import com.curso.odoo.repositorio.EstadoPagoRepositorio;
 import com.curso.odoo.repositorio.EstadoRepositorio;
 import com.curso.odoo.repositorio.FacturaRepositorio;
+import com.curso.odoo.service.api.FacturacionServiceAPI;
 
 @Controller
 public class FacturacionController {
@@ -99,27 +106,32 @@ public class FacturacionController {
 		return "FormFacturacion";
 	}
 	
+	@Autowired
+	private FacturacionServiceAPI facServiceAPI;
 	@GetMapping("/facturacion")
-    public String facturacion(Model modelo)
+    public String facturacion(@RequestParam Map<String, Object> params, Model modelo)
     {
+		
+       int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 10);
+		
+		Page<Factura> pagePersona = facServiceAPI.getAll(pageRequest);
+		int totalPage = pagePersona.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			modelo.addAttribute("pages", pages);
+		}
 		System.out.println("Hola");
 
-		List<Factura> factura = facrepo.findAll(Sort.by("Fechafactura").descending());
 		
-		for (Factura x: factura) {
-
-			x.getCodigofactura();
-			x.getFechafactura();
-			x.getFechavencimiento();
-			x.getImpuestos();
-			x.getTotal();
-			x.getCliente().getNombrecliente();
-			x.getActividad().getNombreactividad();
-			x.getEstado().getNombreestado();
-			x.getEstadopago().getNombreestadopago();
-		}
 	
-		modelo.addAttribute("factura", factura);
+		
+		modelo.addAttribute("factura", pagePersona.getContent());
+		modelo.addAttribute("current", page + 1);
+		modelo.addAttribute("next", page + 2);
+		modelo.addAttribute("prev", page);
+		modelo.addAttribute("last", totalPage);
   	  return "Facturacion";
     }
 	

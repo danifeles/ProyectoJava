@@ -1,6 +1,7 @@
 		
 		html, body{
 		background: linear-gradient(to right, #2980b9, #2c3e50);
+		
 		}
         #nav1 {
             background: linear-gradient(to right, #2980b9, #2c3e50);
@@ -176,10 +177,10 @@
         .demo{ font-family: 'Noto Sans', sans-serif; }
 .panel{
     background: linear-gradient(to right, #2980b9, #2c3e50);
-    padding: 0;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05);
+    
+   
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.10),0 0 0 100px rgba(0,0,0,0.05);
+     margin: 0%;
 }
 .panel .panel-heading{
     padding: 20px 15px;
@@ -308,7 +309,7 @@
     font-weight: 500;
     text-align: center;
     line-height: 31px;
-    width: 35px;
+    width: 60px;
     height: 35px;
     padding: 0;
     margin: 0 3px;

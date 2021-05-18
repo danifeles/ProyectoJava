@@ -30,7 +30,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Clientes</a>
+                    <a class="nav-link" href="clientes">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Proveedores</a>
@@ -81,9 +81,9 @@
                             <div class="btn_group">
                             <i class="fas fa-filter" id="iconofiltro"></i>
 							<select class="custom-select" name="filtro" onchange="cambiartipo()" id="lista">
- 							 <option value="0" selected> Filtrar por</option>
- 							 <option value="1">Número facturación</option>
-  								<option value="2">Nombre Cliente</option> 
+ 							 <option value="0" selected style="color: black;"> Filtrar por</option>
+ 							 <option value="1" style="color: black;">Número facturación</option>
+  								<option value="2" style="color: black;">Nombre Cliente</option> 
 							</select>
                                 <input type="text" class="form-control" placeholder="Buscar" name="buscar" id="cambiartipo1">
                                 <button class="btn btn-default" title="Reload" type="submit"><i class="fas fa-search"></i></button>
@@ -126,6 +126,25 @@
 					</tr>
                         </tbody>
                     </table>
+                    
+                </div>
+                 <div class="panel-footer">
+                    <div class="row">
+                    <div class="col col-sm-6 col-xs-6"></div>
+                        <div class="col-sm-6 col-xs-6">
+                            <ul class="pagination hidden-xs pull-right">
+                                <li  class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
+								<a class="page-link" th:href="@{|/facturacion?page=${prev}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Anterior</a>
+							</li>
+							<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
+								<a class="page-link" th:href="@{|/facturacion?page=${page}|}" th:text="${page}"></a>
+							</li>
+							<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
+								<a class="page-link" th:href="@{|/facturacion?page=${next}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Siguiente</a>
+							</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

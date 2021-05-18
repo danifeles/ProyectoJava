@@ -1,8 +1,13 @@
 package com.curso.odoo.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +16,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.curso.odoo.model.Cliente;
 import com.curso.odoo.model.Factura;
 import com.curso.odoo.model.Presupuesto;
 import com.curso.odoo.model.comercial;
 import com.curso.odoo.repositorio.ComercialRepositorio;
 import com.curso.odoo.repositorio.FacturaRepositorio;
 import com.curso.odoo.repositorio.PresupuestoRepositorio;
+import com.curso.odoo.service.api.ClienteServicesAPI;
+import com.curso.odoo.service.api.ComercialServicesAPI;
 
 @Controller
 public class ComercialController {
@@ -49,22 +57,34 @@ public class ComercialController {
   	  return "Formcomercial";
     }
 	
-	@GetMapping("/comercial")
-    public String comercial(Model modelo)
-    {
-		List<comercial> comercial = comrepo1.findAll();
-		
-		for (comercial x: comercial) {
-
-			x.getCodigocomercial();
-			x.getNombrecomercial();
-			
-		}
+	@Autowired
+	private  ComercialServicesAPI  comerServiceAPI;
 	
-		modelo.addAttribute("comercial", comercial);
+	@GetMapping("/comercial")
+    public String  Formcomercial (@RequestParam Map<String, Object> params, Model modelo)
+    {
+		
+       int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 10);
+		
+		Page<comercial> pagePersona = comerServiceAPI.getAll(pageRequest);
+		int totalPage = pagePersona.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			modelo.addAttribute("pages", pages);
+		}
+		System.out.println("Hola");
+
+		
+		
+		modelo.addAttribute("comercial", pagePersona.getContent());
+		modelo.addAttribute("current", page + 1);
+		modelo.addAttribute("next", page + 2);
+		modelo.addAttribute("prev", page);
+		modelo.addAttribute("last", totalPage);
   	  return "comercial";
     }
-	
 	@GetMapping("/borrarcomercial/{codigo}")
 	public String borrarcomercial(@PathVariable("codigo") String cod)
 	{

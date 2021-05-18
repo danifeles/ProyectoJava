@@ -10,11 +10,10 @@ import com.curso.odoo.repositorio.PresupuestoRepositorio;
 import com.curso.odoo.service.api.PresupuestoServiceAPI;
 
 @Service
-public class PresupuestoServiceImpl implements PresupuestoServiceAPI {
-	
+public class PresupuestoServicelmpl  implements PresupuestoServiceAPI {
+
 	@Autowired
-	private PresupuestoRepositorio prerepo;
-	
+	PresupuestoRepositorio prerepo;
 	@Override
 	public Page<Presupuesto> getAll(Pageable pageable) {
 		// TODO Auto-generated method stub
