@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.curso.odoo.model.Cliente;
 import com.curso.odoo.model.Factura;
 import com.curso.odoo.model.Presupuesto;
+import com.curso.odoo.model.actividad;
 import com.curso.odoo.model.estado;
 import com.curso.odoo.repositorio.EstadoRepositorio;
 import com.curso.odoo.repositorio.FacturaRepositorio;
@@ -138,5 +139,36 @@ public class EstadoController {
 		}
   	  return "estado";
     }
+	
+	@GetMapping("/FormEstadoEditar/{codigo}")
+	public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+	{	
+		
+		List<com.curso.odoo.model.estado> est = estrepo1.findByCodigoestado(Integer.parseInt(cod));
+		for (estado x: est) {
+
+			x.getCodigoestado();
+			x.getNombreestado();
+		}
+		
+		modelo.addAttribute("editarestado", est);
+		
+		List<com.curso.odoo.model.estado> est1 = estrepo1.findAll();
+		
+		for (estado x: est1) {
+
+			x.getCodigoestado();
+			x.getNombreestado();
+		}
+	
+		modelo.addAttribute("estado", est1);
+
+		return "FormEstadoEditar";
+	}
+	
+	@GetMapping ("FormEstadoEditar") 
+	public String FormEstadoEditar() {
+		return "FormEstadoEditar";
+	}
 
 }

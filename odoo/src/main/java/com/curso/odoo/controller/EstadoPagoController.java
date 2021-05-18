@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.curso.odoo.model.Cliente;
 import com.curso.odoo.model.Factura;
 import com.curso.odoo.model.Presupuesto;
+import com.curso.odoo.model.estado;
 import com.curso.odoo.model.estadopago;
 import com.curso.odoo.repositorio.EstadoPagoRepositorio;
 import com.curso.odoo.repositorio.FacturaRepositorio;
@@ -134,4 +135,35 @@ public class EstadoPagoController {
 		}
   	  return "estadopago";
     }
+	
+	@GetMapping("/FormEstadoPagoEditar/{codigo}")
+	public String editarmodal(@PathVariable("codigo") String cod, Model modelo)
+	{	
+		
+		List<estadopago> est = estrepo2.findByCodigoestadopago(Integer.parseInt(cod));
+		for (estadopago x: est) {
+
+			x.getCodigoestadopago();
+			x.getNombreestadopago();
+		}
+		
+		modelo.addAttribute("editarestadopago", est);
+		
+		List<estadopago> est1 = estrepo2.findAll();
+		
+		for (estadopago x: est1) {
+
+			x.getCodigoestadopago();
+			x.getNombreestadopago();
+		}
+	
+		modelo.addAttribute("estadopago", est1);
+
+		return "FormEstadoPagoEditar";
+	}
+	
+	@GetMapping ("FormEstadoPagoEditar") 
+	public String FormEstadoPagoEditar() {
+		return "FormEstadoPagoEditar";
+	}
 }
