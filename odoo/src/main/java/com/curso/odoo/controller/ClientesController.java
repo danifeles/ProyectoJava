@@ -23,6 +23,9 @@ import com.curso.odoo.model.Factura;
 import com.curso.odoo.model.Pais;
 import com.curso.odoo.model.Presupuesto;
 import com.curso.odoo.model.Provincia;
+import com.curso.odoo.model.actividad;
+import com.curso.odoo.model.estado;
+import com.curso.odoo.model.estadopago;
 import com.curso.odoo.repositorio.ClienteRepositorio;
 import com.curso.odoo.repositorio.FacturaRepositorio;
 import com.curso.odoo.repositorio.PaisRepositorio;
@@ -105,7 +108,7 @@ public class ClientesController {
 						  @Param("tel") String tel,
 						  @Param("mov") String mov,
 						  @RequestParam("correo") String correo,
-						  @Param("enlaceweb") String enlaceweb,
+						  @Param("website") String enlaceweb,
 						  @Param("categorias") String categorias
 						  ) {
 		
@@ -251,4 +254,68 @@ public class ClientesController {
 	public String FormularioEditar() {
 		return "FormularioEditar";
 	}
+
+
+@PostMapping("/FormularioEditar")
+public String formPost1(@RequestParam("numero") int numero,
+		@RequestParam("tipocliente") String tipocliente,
+		@RequestParam("nombre") String nombre,
+		@RequestParam("apellidos") String apellidos,
+	  @RequestParam("calle1") String calle1, 
+	  @Param("calle2") String calle2,
+	  @RequestParam("ciudad") String ciudad, 
+	  @RequestParam("provincia") Integer provincia,
+	  @RequestParam("CP") Integer codigopostal,
+	  @RequestParam("pais") Integer pais,
+	  @RequestParam("NIF") String nif,
+	  @RequestParam("tel") String tel,
+	  @RequestParam("mov") String mov,
+	  @RequestParam("correo") String correo,
+	  @RequestParam("website") String enlaceweb,
+	  @RequestParam("categorias") String categorias
+	  ) {
+
+System.out.println(nombre);
+System.out.println(apellidos);
+System.out.println(calle1);
+System.out.println(provincia);
+System.out.println(nif);
+System.out.println(mov);
+System.out.println(tel);
+System.out.println(correo);
+System.out.println(pais);
+System.out.println(ciudad);
+
+System.out.println(codigopostal);
+	
+Cliente x = new Cliente();
+
+Optional<Provincia> c1 = provinciarepo.findById(provincia);
+
+x.setProvincia(c1.get());
+
+Optional<Pais> c2 = paisrepo.findById(pais);
+
+x.setPais(c2.get());
+
+x.setCodigocliente(numero);
+x.setTipocliente(tipocliente);
+x.setNombrecliente(nombre);
+x.setApellidoscliente(apellidos);
+x.setCalle(calle1);
+x.setCalle1(calle2);
+x.setCiudad(ciudad);
+x.setCodigopostal(codigopostal);
+x.setNif(nif);
+x.setTelefono(tel);
+x.setMovil(mov);
+x.setEmail(correo);
+x.setPaginaweb(enlaceweb);
+x.setCategorias(categorias);
+
+clirepo.save(x); 
+
+
+return "redirect:/clientes";
+}
 }

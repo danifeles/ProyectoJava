@@ -170,5 +170,20 @@ public class EstadoController {
 	public String FormEstadoEditar() {
 		return "FormEstadoEditar";
 	}
+	
+	@PostMapping("/FormEstadoEditar")
+	public String Editarform(@RequestParam("nombre_estado") String c1,
+						  @RequestParam("codigo_estado") int c2) {
+		
+		
+		com.curso.odoo.model.estado estado_1 = new com.curso.odoo.model.estado();
+		
+		estado_1.setNombreestado(c1);
+		estado_1.setCodigoestado(c2);
+		
+		estrepo1.save(estado_1);
+		
+		return "redirect:/estado";
+	}
 
 }

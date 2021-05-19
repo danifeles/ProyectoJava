@@ -171,4 +171,20 @@ public class ComercialController {
 	public String FormComercialEditar() {
 		return "FormComercialEditar";
 	}
+	
+	@PostMapping("/FormComercialEditar")
+	public String FormEditar(@RequestParam("nombre_comercial") String c1, @RequestParam("apellidos_comercial") String c2,
+						  @RequestParam("codigo_comercial") int c3) {
+		
+		System.out.println(c3);
+		com.curso.odoo.model.comercial comercial_1 = new com.curso.odoo.model.comercial();
+		
+		comercial_1.setNombrecomercial(c1);
+		comercial_1.setApellidoscomercial(c2);
+		comercial_1.setCodigocomercial(c3);
+		
+		comrepo1.save(comercial_1);
+		
+		return "redirect:/comercial";
+	}
 }

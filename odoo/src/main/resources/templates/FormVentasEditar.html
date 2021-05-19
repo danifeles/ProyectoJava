@@ -148,7 +148,7 @@
 								<input th:each="p1:${editarventas}"
 									th:value="${p1.Codigopresupuesto}" class="form-control"
 									name="numero" type="number"
-									th:placeholder="${p1.Codigopresupuesto}" disabled>
+									th:placeholder="${p1.Codigopresupuesto}" readonly="true">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -158,7 +158,7 @@
 								<input th:each="p1:${editarventas}"
 									th:value="${p1.Fechapresupuesto}" class="form-control"
 									name="fecha" type="date"
-									th:placeholder="${p1.Fechapresupuesto}" disabled>
+									th:placeholder="${p1.Fechapresupuesto}" readonly="true">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -168,7 +168,7 @@
 								<select class="custom-select" name="cliente">
 									<option th:each="p1:${editarventas}"
 										th:value="${p1.Cliente.Codigocliente}"
-										th:text="${p1.Cliente.Nombrecliente}" selected disabled></option>
+										th:text="${p1.Cliente.Nombrecliente}" selected></option>
 								</select>
 							</div>
 						</div>
@@ -177,8 +177,8 @@
 								Comercial </label>
 							<div class="col-sm-8">
 								<select class="custom-select" name="comercial">
-									<option th:each="p1:${editarventas}"
-										th:text="${p1.Comercial.Nombrecomercial}" selected disabled></option>
+									<option th:each="p1:${editarventas}" th:value="${p1.Comercial.Codigocomercial}"
+										th:text="${p1.Comercial.Nombrecomercial}" selected></option>
 									<option th:each="p1:${presupuesto}"
 										th:value="${p1.Comercial.Codigocomercial}"
 										th:text="${p1.Comercial.Nombrecomercial}"></option>
@@ -193,7 +193,7 @@
 								<select class="custom-select" name="actividad">
 
 									<option th:each="p1:${editarventas}"
-										th:text="${p1.Actividad.Nombreactividad}" selected disabled></option>
+										th:text="${p1.Actividad.Nombreactividad}" th:value="${p1.Comercial.Codigocomercial}" selected></option>
 									<option th:each="p1:${presupuesto}"
 										th:value="${p1.Actividad.Codigoactividad}"
 										th:text="${p1.Actividad.Nombreactividad}"></option>
@@ -214,7 +214,7 @@
 							<div class="col-sm-8">
 								<select class="custom-select" name="estado">
 									<option th:each="p1:${editarventas}"
-										th:text="${p1.Estado.Nombreestado}" selected disabled></option>
+										th:text="${p1.Estado.Nombreestado}" th:value="${p1.Comercial.Codigocomercial}" selected></option>
 									<option th:each="p1:${presupuesto}"
 										th:value="${p1.estado.Codigoestado}"
 										th:text="${p1.Estado.Nombreestado}"></option>

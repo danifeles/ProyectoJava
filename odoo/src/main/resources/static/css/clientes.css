@@ -213,6 +213,10 @@
 		width: 50px;
 		}
 		
+		button[name=botoneditar] {
+		border:0;
+		background-color: white;
+		}
 		
 
 

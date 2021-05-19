@@ -166,4 +166,19 @@ public class EstadoPagoController {
 	public String FormEstadoPagoEditar() {
 		return "FormEstadoPagoEditar";
 	}
+	
+	@PostMapping("/FormEstadoPagoEditar")
+	public String Editarform(@RequestParam("nombre_estadopago") String c1,
+						  @RequestParam("codigo_estadopago") int c2) {
+		
+		
+		com.curso.odoo.model.estadopago estadopago_1 = new com.curso.odoo.model.estadopago();
+		
+		estadopago_1.setNombreestadopago(c1);
+		estadopago_1.setCodigoestadopago(c2);
+		
+		estrepo2.save(estadopago_1);
+		
+		return "redirect:/estadopago";
+	}
 }

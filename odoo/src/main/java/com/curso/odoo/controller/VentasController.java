@@ -253,4 +253,37 @@ public class VentasController {
 			return "FormVentasEditar";
 		}
 		
+		@PostMapping("/FormVentasEditar")
+		public String Editarform(@RequestParam("numero") int numero,
+							  @RequestParam("fecha") String fecha, 
+							  @RequestParam("cliente") int cliente, 
+							  @RequestParam("comercial") int comercial, 
+							  @RequestParam("actividad") int actividad,
+							  @RequestParam("total") int total,
+							  @RequestParam("estado") int estado) {
+			
+			Presupuesto x = new Presupuesto();  
+			
+			//Buscar el codigo del cliente en la BBDD y guardarlo en la factura
+			Optional<Cliente> c1= clirepo.findById(cliente);
+		
+			x.setCliente(c1.get());
+	      
+			Optional<actividad> c2= actrepo1.findById(actividad);
+			x.setActividad(c2.get());
+			
+			Optional<estado> c3= estrepo1.findById(estado);
+			x.setEstado(c3.get());
+			
+			Optional<comercial> c4= comrepo1.findById(comercial);
+			x.setComercial(c4.get());
+			
+			x.setCodigopresupuesto(numero);
+			x.setFechapresupuesto(fecha);
+			x.setTotal(total);
+			
+			prerepo.save(x); 
+			
+			return "redirect:/ventas";
+		}
 }

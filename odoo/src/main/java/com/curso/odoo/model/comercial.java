@@ -22,7 +22,7 @@ public class comercial {
 	public void setApellidoscomercial(String apellidoscomercial) {
 		this.apellidoscomercial = apellidoscomercial;
 	}
-	public int getCodigocomercial() {
+	public Integer getCodigocomercial() {
 		return codigocomercial;
 	}
 	public void setCodigocomercial(Integer codigocomercial) {

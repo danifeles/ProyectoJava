@@ -14,7 +14,7 @@ public class actividad {
 		//@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer codigoactividad;
 		private String nombreactividad;
-		public int getCodigoactividad() {
+		public Integer getCodigoactividad() {
 			return codigoactividad;
 		}
 		public void setCodigoactividad(Integer codigoactividad) {

@@ -257,4 +257,54 @@ public class FacturacionController {
 	public String FormFacturacionEditar() {
 		return "FormFacturacionEditar";
 	}
+	
+	@PostMapping("/FormFacturacionEditar")
+		public String formPost1(@Param("numero") Integer numero,
+				  @Param("cliente") Integer cliente, 
+				  @Param("factura") String factura, 
+				  @Param("fechavencimiento") String fechavencimiento,
+				  @Param("actividad") Integer actividad,
+				  @Param("impuestos") Integer impuestos,
+				  @Param("total") Integer total,
+				  @Param("estado") Integer estado,
+				  @Param("estadopago") Integer estadopago) {
+
+System.out.println(numero);
+System.out.println(cliente);
+System.out.println(factura);
+System.out.println(fechavencimiento);
+System.out.println(actividad);
+System.out.println(total);
+System.out.println(estado);
+System.out.println(estadopago);
+System.out.println(impuestos);
+
+
+Factura x = new Factura();
+
+//Buscar el codigo del cliente en la BBDD y guardarlo en la factura
+Optional<Cliente> c1= clirepo.findById(cliente);
+
+x.setCliente(c1.get());
+
+Optional<actividad> c2= actrepo1.findById(actividad);
+x.setActividad(c2.get());
+
+Optional<estado> c3= estrepo1.findById(estado);
+x.setEstado(c3.get());
+
+Optional<estadopago> c4= estrepo2.findById(estadopago);
+x.setEstadopago(c4.get());
+
+x.setCodigofactura(numero);
+x.setFechafactura(factura);
+x.setFechavencimiento(fechavencimiento);
+x.setImpuestos(impuestos);
+x.setTotal(total);
+
+facrepo.save(x); 
+		
+
+		return "redirect:/facturacion";
+	}
 }

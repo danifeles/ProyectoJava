@@ -38,7 +38,7 @@ public class ActividadController {
 	
 	@PostMapping("/actividad")
 	public String formPost(@RequestParam("nombre_actividad") String c1,
-						  @RequestParam("codigo_actividad") int c2) {
+						  @RequestParam("codigo_actividad") Integer c2) {
 		
 		
 		com.curso.odoo.model.actividad actividad_1 = new com.curso.odoo.model.actividad();
@@ -167,5 +167,25 @@ public class ActividadController {
 	public String FormActividadEditar() {
 		return "FormActividadEditar";
 	}
+	
+	@PostMapping("/FormActividadEditar")
+	public String EditarForm(@RequestParam("codigo_actividad") Integer c2,
+			@RequestParam("nombre_actividad") String c1
+						  ) {
+		
+		System.out.println(c2);
+		System.out.println(c1);
+
+		actividad actividad_1 = new actividad();
+		
+		actividad_1.setNombreactividad(c1);
+		actividad_1.setCodigoactividad(c2);
+		
+		actrepo1.save(actividad_1);
+		
+		return "redirect:/actividad";  
+	}
 
 }
+
+
