@@ -168,7 +168,7 @@ body {
 }
 
 .chat_window {
-	margin-top: 100px;
+	margin-top: 120px;
   position: absolute;
   width: calc(100% - 20px);
   max-width: 800px;
@@ -359,5 +359,5 @@ body {
 	border: 0;
 	background-color: inherit;
 	color: white;
-	padding-left: 5px;
+	padding-left: 1px;
 }

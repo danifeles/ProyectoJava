@@ -73,6 +73,22 @@
             border-radius: 0;
             width: 600px;
         }
+        
+        a[name=botoncerrar] {
+        font-size: 23px;
+        color:rgb(247, 239, 239);
+        margin-top: 1px;
+        padding-top: 1px;
+        padding-left: 0px;
+        margin-left: 0px;
+        }
+        
+        #menubotoncerrar{
+       position: absolute;
+ 		top: 55px;
+  		right: 0px;
+  		left: 1300px;
+        }
 
         span {
             font-family: Arial;
