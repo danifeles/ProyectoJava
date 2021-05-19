@@ -55,66 +55,6 @@
 			</a>
 		</div>
 	</nav>
-<<<<<<< Updated upstream
-	
-            <div class="panel">
-                <div class="panel-heading">
-                <div class="row">
-                        <div class="col col-sm-3 col-xs-12">
-                            <h4 class="title">Clientes</h4>
-                        </div>
-                 </div>
-                    <div class="row">
-                    	<div class="col-sm-3 col-xs-12">
-                                <button class="btn btn-default" title="Reload" type="button" onclick="window.location.href='formulario'" > CREAR </button>
-                   
-                                <button class="btn btn-default" title="Reload" style="visibility: hidden;" id="basura" type="button" onclick="borrarcliente()"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                        <div class="col-sm-9 col-xs-12 text-right">
-                        
-                            <div class="btn_group">
-                            
-                            <form action="/clientes" method="post">
-                            <i class="fas fa-eye" id="iconofiltro"></i>
-							<select class="custom-select" name="agrupar" onchange="agruparpor()" id="lista">
- 							 <option value="0" selected style="color: black;"> Agrupar por</option>
- 							 <option value="1" style="color: black;">Código cliente ascendente</option>
-  								<option value="2" style="color: black;">Código cliente descendente</option> 
-							</select>
-							</form>
-							<form action="/buscarclientes" method="post">
-							<i class="fas fa-filter" id="iconofiltro"></i>
-							<select class="custom-select" name="filtro" onchange="cambiartipo()" id="lista">
- 							 <option value="0" selected style="color: black;"> Filtrar por</option>
- 							 <option value="1"style="color: black;">Número cliente</option>
-  								<option value="2" style="color: black;">Nombre Cliente</option> 
-							</select>
-                                <input type="text" class="form-control" placeholder="Buscar" name="buscar" id="cambiartipo1" >
-                                <button class="btn btn-default" title="Reload" type="submit"><i class="fas fa-search"></i></button>
-                            
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-	<div class="container">
-		<div class="row">
-			
-			<div class="col-md-3 col-6 pt-5 pr-5 pl-5" th:each="p1:${cliente}">
-				<div class="our-team">
-					<div class="pic">
-						<img id="img" th:src="${p1.Photo}">
-					</div>
-					<h3 class="title" th:text="${p1.Nombrecliente}"></h3>
-					<span class="post" th:text="${p1.Codigocliente}"></span>
-					<button th:id="${p1.Codigocliente}" name="botoneditar" type="button" onclick="editarclientes(this.id)"><i class="far fa-edit"></i> </button>
-					<button th:id="${p1.Codigocliente}" type="button"
-						name="botonborrarcliente" data-toggle="modal"
-						data-target="#myModal"
-						th:attrappend="data-target=${p1.Codigocliente}">
-						<i  class="fas fa-trash-alt"></i>
-=======
-
 	<div class="panel">
 		<div class="panel-heading">
 			<div class="row">
@@ -131,25 +71,11 @@
 						style="visibility: hidden;" id="basura" type="button"
 						onclick="borrarcliente()">
 						<i class="fas fa-trash-alt"></i>
->>>>>>> Stashed changes
 					</button>
 				</div>
 				<div class="col-sm-9 col-xs-12 text-right">
 
 					<div class="btn_group">
-
-						<form action="/clientes" method="post">
-							<i class="fas fa-eye" id="iconofiltro"></i> <select
-								class="custom-select" name="agrupar" onchange="agruparpor()"
-								id="lista">
-								<option value="0" selected style="color: black;">
-									Agrupar por</option>
-								<option value="1" style="color: black;">Código cliente
-									ascendente</option>
-								<option value="2" style="color: black;">Código cliente
-									descendente</option>
-							</select>
-						</form>
 						<form action="/buscarclientes" method="post">
 							<i class="fas fa-filter" id="iconofiltro"></i> <select
 								class="custom-select" name="filtro" onchange="cambiartipo()"
@@ -180,11 +106,11 @@
 						<h3 class="title" th:text="${p1.Nombrecliente}"></h3>
 						<span class="post" th:text="${p1.Codigocliente}"></span>
 						<button th:id="${p1.Codigocliente}" name="botonvisualizar"
-							type="button" data-toggle="modal" data-target="#myModal"
+							type="button" data-toggle="modal" data-target="#myModal1"
 							th:attrappend="data-target=${p1.Codigocliente}">
 							<i class="fas fa-eye"></i>
 						</button>
-						<div class="modal fade" id="myModal" role="dialog"
+						<div class="modal fade" id="myModal1" role="dialog"
 							th:attrappend="id=${p1.Codigocliente}">
 							<div class="modal-dialog">
 
@@ -293,7 +219,6 @@
 						
                             </ul>
                         </div>
-                        <p>hola</p>
                     </div>
                 </div>
             </div>
