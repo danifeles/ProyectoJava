@@ -70,9 +70,19 @@
                                 <button class="btn btn-default" title="Reload" style="visibility: hidden;" id="basura" type="button" onclick="borrarcliente()"><i class="fas fa-trash-alt"></i></button>
                         </div>
                         <div class="col-sm-9 col-xs-12 text-right">
-                        <form action="/buscarclientes" method="post">
+                        
                             <div class="btn_group">
-                            <i class="fas fa-filter" id="iconofiltro"></i>
+                            
+                            <form action="/clientes" method="post">
+                            <i class="fas fa-eye" id="iconofiltro"></i>
+							<select class="custom-select" name="agrupar" onchange="agruparpor()" id="lista">
+ 							 <option value="0" selected style="color: black;"> Agrupar por</option>
+ 							 <option value="1" style="color: black;">Código cliente ascendente</option>
+  								<option value="2" style="color: black;">Código cliente descendente</option> 
+							</select>
+							</form>
+							<form action="/buscarclientes" method="post">
+							<i class="fas fa-filter" id="iconofiltro"></i>
 							<select class="custom-select" name="filtro" onchange="cambiartipo()" id="lista">
  							 <option value="0" selected style="color: black;"> Filtrar por</option>
  							 <option value="1"style="color: black;">Número cliente</option>
@@ -80,13 +90,15 @@
 							</select>
                                 <input type="text" class="form-control" placeholder="Buscar" name="buscar" id="cambiartipo1" >
                                 <button class="btn btn-default" title="Reload" type="submit"><i class="fas fa-search"></i></button>
+                            
+                            </form>
                             </div>
-                           </form>
                         </div>
                     </div>
                 </div>
 	<div class="container">
 		<div class="row">
+			
 			<div class="col-md-3 col-6 pt-5 pr-5 pl-5" th:each="p1:${cliente}">
 				<div class="our-team">
 					<div class="pic">

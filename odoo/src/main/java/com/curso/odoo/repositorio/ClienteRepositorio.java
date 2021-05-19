@@ -9,4 +9,6 @@ import com.curso.odoo.model.Cliente;
 public interface ClienteRepositorio extends JpaRepository<Cliente, Integer>{
 	List<Cliente> findByCodigocliente (int codigo);
 	List<Cliente> findByNombreclienteContaining(String nombre);
+	//List<Cliente> findByOrderByCodigocliente (int codigo);
+
 }

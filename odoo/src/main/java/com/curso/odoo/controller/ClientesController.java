@@ -85,14 +85,49 @@ public class ClientesController {
 		System.out.println("Hola");
 
 		
-		
 		modelo.addAttribute("cliente", pagePersona.getContent());
 		modelo.addAttribute("current", page + 1);
 		modelo.addAttribute("next", page + 2);
 		modelo.addAttribute("prev", page);
 		modelo.addAttribute("last", totalPage);
+		
   	  return "clientes";
     }
+	
+	@PostMapping("/clientes") 
+	public String agruparpor(@RequestParam("agruparpor") String agruparpor, Model modelo) {
+		
+		System.out.println(agruparpor);
+		
+		if (agruparpor == "1") {
+			
+			List<Cliente> cliente = clirepo.findAll(Sort.by("Codigocliente").descending());
+			if (cliente.isEmpty())
+			{			System.out.println("La lists esta vacia");
+			}
+				for (Cliente x: cliente) {
+
+					x.getCodigocliente();
+					x.getNif();
+					x.getTelefono();
+				} 
+				modelo.addAttribute("cliente", cliente);
+		} else if (agruparpor == "2") {
+				List<Cliente> cliente = clirepo.findAll(Sort.by("Codigocliente").ascending());
+				if (cliente.isEmpty())
+				{			System.out.println("La lists esta vacia");
+				}
+					for (Cliente x: cliente) {
+
+						x.getCodigocliente();
+						x.getNif();
+						x.getTelefono();
+					} 
+					modelo.addAttribute("cliente", cliente);
+		}
+		
+		return "clientes";
+	}
 	
 	@PostMapping("/formcliente")
 	public String formclientes2(@RequestParam("tipocliente") String tipocliente,
@@ -204,6 +239,8 @@ public class ClientesController {
 				modelo.addAttribute("cliente", cliente);
 
 			}
+		
+		
 
 		return "clientes";
 	}
@@ -318,4 +355,41 @@ clirepo.save(x);
 
 return "redirect:/clientes";
 }
+
+@GetMapping("/Agruparpor/{codigo}")
+public String Agruparpor(@PathVariable("codigo") String cod, Model modelo)
+{
+	if (cod == "1") {
+	List<Cliente> cliente = clirepo.findAll(Sort.by("Codigocliente").descending());
+	if (cliente.isEmpty())
+	{			System.out.println("La lists esta vacia");
+	}
+		for (Cliente x: cliente) {
+
+			x.getCodigocliente();
+			x.getNif();
+			x.getTelefono();
+		} 
+		modelo.addAttribute("cliente", cliente);
+	} else if (cod == "2") {
+		List<Cliente> cliente = clirepo.findAll(Sort.by("Codigocliente").ascending());
+		if (cliente.isEmpty())
+		{			System.out.println("La lists esta vacia");
+		}
+			for (Cliente x: cliente) {
+
+				x.getCodigocliente();
+				x.getNif();
+				x.getTelefono();
+			} 
+			modelo.addAttribute("cliente", cliente);
+	}
+	
+	
+	return "clientes"; 
+	
 }
+
+}
+
+
