@@ -60,9 +60,9 @@
             </a>
         </div>
     </nav>
-    <div class="container-fluid" style="margin: 20px; width: 1650px ; align-self: center;">
+    <div class="container-fluid m-1">
     <div class="row">
-        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
                 <div class="row">
@@ -110,7 +110,7 @@
                 <th scope="col">Estado de Pago</th>
               </tr>
                         </thead>
-                        <tbody>
+                        <tbody  id="td">
                             <tr th:each="p1:${factura}" >
                         <th scope="row" style="border-bottom: 0;"><input class="form-check-input" type="checkbox" onchange="aparecerbasura(this)" th:id="${p1.Codigofactura}"></th>
 						<td th:text="'REF'+${p1.Codigofactura}"></td>
@@ -136,13 +136,13 @@
                         <div class="col-sm-6 col-xs-6">
                             <ul class="pagination hidden-xs pull-right">
                                 <li  class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
-								<a class="page-link" th:href="@{|/facturacion?page=${prev}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Anterior</a>
+								<a class="page-link" th:href="@{|/facturacion?page=${prev}|}" style="border-radius: 38% ;padding: 0px; width: 100px; left: 400px">Anterior</a>
 							</li>
 							<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
-								<a class="page-link" th:href="@{|/facturacion?page=${page}|}" th:text="${page}"></a>
+								<a class="page-link" th:href="@{|/facturacion?page=${page}|}" style="left: 400px" th:text="${page}"></a>
 							</li>
 							<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
-								<a class="page-link" th:href="@{|/facturacion?page=${next}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Siguiente</a>
+								<a class="page-link" th:href="@{|/facturacion?page=${next}|}" style="border-radius: 38% ;padding: 0px; width: 100px; left: 400px">Siguiente</a>
 							</li>
                             </ul>
                         </div>

@@ -104,13 +104,13 @@
                         <div class="col-sm-6 col-xs-6">
                             <ul class="pagination hidden-xs pull-right">
                                 <li  class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
-								<a class="page-link" th:href="@{|/comercial?page=${prev}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Anterior</a>
+								<a class="page-link" th:href="@{|/comercial?page=${prev}|}" style="border-radius: 38% ;padding: 0px; width: 100px ;left: 500px">Anterior</a>
 							</li>
 							<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
-								<a class="page-link" th:href="@{|/comercial?page=${page}|}" th:text="${page}"></a>
+								<a class="page-link" th:href="@{|/comercial?page=${page}|}" style=" left: 500px"  th:text="${page}"></a>
 							</li>
 							<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
-								<a class="page-link" th:href="@{|/comercial?page=${next}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Siguiente</a>
+								<a class="page-link" th:href="@{|/comercial?page=${next}|}" style="border-radius: 38% ;padding: 0px; width: 100px ; left: 500px" >Siguiente</a>
 							</li>
                             </ul>
                         </div>
