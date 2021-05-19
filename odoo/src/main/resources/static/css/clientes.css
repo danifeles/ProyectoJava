@@ -218,6 +218,10 @@
 		background-color: white;
 		}
 		
+		button[name=botonvisualizar] {
+		border:0;
+		background-color: white;
+		}
 
 
 .demo{ background: #262526; }

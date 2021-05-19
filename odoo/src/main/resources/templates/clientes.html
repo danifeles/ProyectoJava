@@ -55,6 +55,7 @@
 			</a>
 		</div>
 	</nav>
+<<<<<<< Updated upstream
 	
             <div class="panel">
                 <div class="panel-heading">
@@ -112,56 +113,190 @@
 						data-target="#myModal"
 						th:attrappend="data-target=${p1.Codigocliente}">
 						<i  class="fas fa-trash-alt"></i>
+=======
+
+	<div class="panel">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col col-sm-3 col-xs-12">
+					<h4 class="title">Clientes</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<button class="btn btn-default" title="Reload" type="button"
+						onclick="window.location.href='formulario'">CREAR</button>
+
+					<button class="btn btn-default" title="Reload"
+						style="visibility: hidden;" id="basura" type="button"
+						onclick="borrarcliente()">
+						<i class="fas fa-trash-alt"></i>
+>>>>>>> Stashed changes
 					</button>
 				</div>
-				<div class="modal fade" id="myModal" role="dialog"
-					th:attrappend="id=${p1.Codigocliente}">
-					<div class="modal-dialog">
+				<div class="col-sm-9 col-xs-12 text-right">
 
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title">Eliminar cliente</h4>
-							</div>
-							<div class="modal-body">
-								<p>¿Estas seguro de que quieres eliminar?</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'">Si</button>
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">No</button>
-							</div>
-						</div>
+					<div class="btn_group">
 
+						<form action="/clientes" method="post">
+							<i class="fas fa-eye" id="iconofiltro"></i> <select
+								class="custom-select" name="agrupar" onchange="agruparpor()"
+								id="lista">
+								<option value="0" selected style="color: black;">
+									Agrupar por</option>
+								<option value="1" style="color: black;">Código cliente
+									ascendente</option>
+								<option value="2" style="color: black;">Código cliente
+									descendente</option>
+							</select>
+						</form>
+						<form action="/buscarclientes" method="post">
+							<i class="fas fa-filter" id="iconofiltro"></i> <select
+								class="custom-select" name="filtro" onchange="cambiartipo()"
+								id="lista">
+								<option value="0" selected style="color: black;">
+									Filtrar por</option>
+								<option value="1" style="color: black;">Número cliente</option>
+								<option value="2" style="color: black;">Nombre Cliente</option>
+							</select> <input type="text" class="form-control" placeholder="Buscar"
+								name="buscar" id="cambiartipo1">
+							<button class="btn btn-default" title="Reload" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		 <div class="panel-footer">
-                    <div class="row">
-                    <div class="col col-sm-6 col-xs-6"></div>
-                        <div class="col-sm-6 col-xs-6">
-                            <ul class="pagination hidden-xs pull-right">
-                                <li  class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
-								<a class="page-link" th:href="@{|/clientes?page=${prev}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Anterior</a>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-3 col-6 pt-5 pr-5 pl-5" th:each="p1:${cliente}">
+					<div class="our-team">
+						<div class="pic">
+							<img id="img" th:src="${p1.Photo}">
+						</div>
+						<h3 class="title" th:text="${p1.Nombrecliente}"></h3>
+						<span class="post" th:text="${p1.Codigocliente}"></span>
+						<button th:id="${p1.Codigocliente}" name="botonvisualizar"
+							type="button" data-toggle="modal" data-target="#myModal"
+							th:attrappend="data-target=${p1.Codigocliente}">
+							<i class="fas fa-eye"></i>
+						</button>
+						<div class="modal fade" id="myModal" role="dialog"
+							th:attrappend="id=${p1.Codigocliente}">
+							<div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">
+											<span th:text="${p1.Nombrecliente}"></span> <span
+												th:text="${p1.Apellidoscliente}"></span>
+										</h4>
+									</div>
+									<div class="modal-body">
+										<ul class="list-group">
+											<li class="list-group-item"><b>Tipo de cliente:</b> <span
+												th:text=${p1.Tipocliente}></span></li>
+											<li class="list-group-item"><b>Calle:</b> <span
+												th:text=${p1.Calle}></span></li>
+											<li class="list-group-item"><b>Ciudad:</b> <span
+												th:text=${p1.Ciudad}></span></li>
+											<li class="list-group-item"><b>Provincia:</b> <span
+												th:text=${p1.Provincia.Nombreprovincia}></span></li>
+											<li class="list-group-item"><b>Codigo postal:</b> <span
+												th:text=${p1.Codigopostal}></span></li>
+											<li class="list-group-item"><b>Pais:</b> <span
+												th:text=${p1.Pais.Nombrepais}></span></li>
+											<li class="list-group-item"><b>NIF:</b> <span
+												th:text=${p1.Nif}></span></li>
+											<li class="list-group-item"><b>Teléfono:</b> <span
+												th:text=${p1.Telefono}></span></li>
+											<li class="list-group-item"><b>Móvil:</b> <span
+												th:text=${p1.Movil}></span></li>
+											<li class="list-group-item"><b>Correo electrónico:</b> <span
+												th:text=${p1.Email}></span></li>
+											<li class="list-group-item"><b>Página web:</b> <span
+												th:text=${p1.Paginaweb}></span></li>
+											<li class="list-group-item"><b>Categoría:</b> <span
+												th:text=${p1.Categorias}></span></li>
+
+										</ul>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Salir</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<button th:id="${p1.Codigocliente}" name="botoneditar"
+							type="button" onclick="editarclientes(this.id)">
+							<i class="far fa-edit"></i>
+						</button>
+						<button th:id="${p1.Codigocliente}" type="button"
+							name="botonborrarcliente" data-toggle="modal"
+							data-target="#myModal"
+							th:attrappend="data-target=${p1.Codigocliente}">
+							<i class="fas fa-trash-alt"></i>
+						</button>
+					</div>
+					<div class="modal fade" id="myModal" role="dialog"
+						th:attrappend="id=${p1.Codigocliente}">
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Eliminar cliente</h4>
+								</div>
+								<div class="modal-body">
+									<p>¿Estas seguro de que quieres eliminar?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										th:onclick="'borrarcliente(\''+${p1.Codigocliente}+'\');'">Si</button>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">No</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col col-sm-6 col-xs-6"></div>
+					<div class="col-sm-6 col-xs-6">
+						<ul class="pagination hidden-xs pull-right">
+							<li class="page-item"
+								th:classappend="${prev == 0 ? 'disabled': ''}"><a
+								class="page-link" th:href="@{|/clientes?page=${prev}|}"
+								style="border-radius: 38%; padding: 0px; width: 100px">Anterior</a>
 							</li>
-							<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
-								<a class="page-link" th:href="@{|/clientes?page=${page}|}" th:text="${page}"></a>
+							<li class="page-item" th:each="page : ${pages}"
+								th:classappend="${current == page ? 'active': ''}"><a
+								class="page-link" th:href="@{|/clientes?page=${page}|}"
+								th:text="${page}"></a></li>
+							<li class="page-item"
+								th:classappend="${current == last ? 'disabled': ''}"><a
+								class="page-link" th:href="@{|/clientes?page=${next}|}"
+								style="border-radius: 38%; padding: 0px; width: 100px">Siguiente</a>
 							</li>
-							<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
-								<a class="page-link" th:href="@{|/clientes?page=${next}|}" style="border-radius: 38% ;padding: 0px; width: 100px">Siguiente</a>
-							</li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
 	</div>
 
-	
+
 	<script th:src="@{/javascript/ventas.js}"></script>
 </body>
 </html>
