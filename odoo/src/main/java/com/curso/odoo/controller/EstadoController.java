@@ -90,14 +90,23 @@ public class EstadoController {
 	@GetMapping("/borrarestado/{codigo}")
 	public String borrarestado(@PathVariable("codigo") String cod)
 	{
-		List<Factura> listafactura = facrepo.findByEstadoCodigoestado(Integer.parseInt(cod));
+		List<Factura> listafactura = facrepo.findByActividadCodigoactividad(Integer.parseInt(cod));
+		if(listafactura.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {		
 		for(Factura i:listafactura) {
+		
 			facrepo.deleteById(i.getCodigofactura());
 		}
-		
-		List<Presupuesto> listaventas = prerepo.findByEstadoCodigoestado(Integer.parseInt(cod));
+		}
+			
+		List<Presupuesto> listaventas = prerepo.findByComercialCodigocomercial(Integer.parseInt(cod));
+		if(listaventas.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
 		for(Presupuesto i:listaventas) {
 			prerepo.deleteById(i.getCodigopresupuesto());
+		}
 		}
 		estrepo1.deleteById(Integer.parseInt(cod));
 		

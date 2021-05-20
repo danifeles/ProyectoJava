@@ -85,14 +85,23 @@ public class ActividadController {
 	public String borraractividad(@PathVariable("codigo") String cod)
 	{
 		List<Factura> listafactura = facrepo.findByActividadCodigoactividad(Integer.parseInt(cod));
+		if(listafactura.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
 		for(Factura i:listafactura) {
 			facrepo.deleteById(i.getCodigofactura());
 		}
+		}
 		
-		List<Presupuesto> listaventas = prerepo.findByActividadCodigoactividad(Integer.parseInt(cod));
+		List<Presupuesto> listaventas = prerepo.findByComercialCodigocomercial(Integer.parseInt(cod));
+		if(listaventas.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
 		for(Presupuesto i:listaventas) {
 			prerepo.deleteById(i.getCodigopresupuesto());
 		}
+		}
+		
 		actrepo1.deleteById(Integer.parseInt(cod));		
 		
 		return "redirect:/actividad"; 

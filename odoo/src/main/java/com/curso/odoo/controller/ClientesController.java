@@ -182,15 +182,24 @@ public class ClientesController {
 	{
 		
 		List<Factura> listafactura = facrepo.findByClienteCodigocliente(Integer.parseInt(cod));
+		if(listafactura.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
+		
 		for(Factura i:listafactura) {
 			facrepo.deleteById(i.getCodigofactura());
 		}
-		
-		List<Presupuesto> listaventas = prerepo.findByClienteCodigocliente(Integer.parseInt(cod));
-		for(Presupuesto i:listaventas) {
-			facrepo.deleteById(i.getCodigopresupuesto());
 		}
 		
+		
+		List<Presupuesto> listaventas = prerepo.findByClienteCodigocliente(Integer.parseInt(cod));
+		if(listaventas.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
+		for(Presupuesto i:listaventas) {
+			prerepo.deleteById(i.getCodigopresupuesto());
+		}
+		}
 		clirepo.deleteById(Integer.parseInt(cod));
 		
 		return "redirect:/clientes"; 

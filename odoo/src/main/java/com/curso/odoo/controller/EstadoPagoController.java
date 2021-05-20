@@ -90,12 +90,14 @@ public class EstadoPagoController {
 	public String borrarestadopago(@PathVariable("codigo") String cod)
 	{
 		List<Factura> listafactura = facrepo.findByEstadopagoCodigoestadopago(Integer.parseInt(cod));
+		if(listafactura.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
 		for(Factura i:listafactura) {
 			facrepo.deleteById(i.getCodigofactura());
 		}
-		
+		}
 		estrepo2.deleteById(Integer.parseInt(cod));
-		System.out.println(cod);
 		
 		
 		return "redirect:/estadopago"; 

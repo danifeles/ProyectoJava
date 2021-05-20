@@ -91,11 +91,14 @@ public class ComercialController {
 	{
 		
 		List<Presupuesto> listaventas = prerepo.findByComercialCodigocomercial(Integer.parseInt(cod));
+		if(listaventas.isEmpty()) {
+			System.out.println("Está vacia");
+		} else {
 		for(Presupuesto i:listaventas) {
 			prerepo.deleteById(i.getCodigopresupuesto());
 		}
+		}
 		comrepo1.deleteById(Integer.parseInt(cod));
-		System.out.println(cod);
 		
 		
 		return "redirect:/comercial"; 
